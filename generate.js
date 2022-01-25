@@ -1,4 +1,5 @@
 const fs = require('fs').promises;
+const generateIf = require('./generators/if');
 
 async function main() {
   const filename = process.argv[2];
@@ -78,9 +79,18 @@ function generateLine(node) {
         })
         .join(';\n');
       return `const ${lambdaName} = (${params}) => {\n${lambdaBody}\n};`;
+    case 'if_statement':
+      return generateIf(node, generateLine, indent);
     default:
       console.log(`unknown node type detected: ${node.type} $`);
   }
+}
+
+function indent(string) {
+  return string
+    .split('\n')
+    .map((l) => `\t${l}`)
+    .join('\n');
 }
 
 main().catch((err) => console.log(err.stack));
