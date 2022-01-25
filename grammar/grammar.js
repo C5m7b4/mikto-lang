@@ -39,6 +39,7 @@ var grammar = {
     {"name": "statement", "symbols": ["array"], "postprocess": id},
     {"name": "statement", "symbols": ["each_statement"], "postprocess": id},
     {"name": "statement", "symbols": ["math"], "postprocess": id},
+    {"name": "statement", "symbols": ["map_statement"], "postprocess": id},
     {"name": "internal_statement", "symbols": ["internal_function_call"], "postprocess": id},
     {"name": "assignment", "symbols": [(lexer.has("identifier") ? {type: "identifier"} : identifier), "_", (lexer.has("assign") ? {type: "assign"} : assign), "_", "expression"], "postprocess": 
         (data) => {
@@ -226,6 +227,16 @@ var grammar = {
           }
         }
             },
+    {"name": "map_statement", "symbols": [{"literal":"map"}, "_", (lexer.has("colon") ? {type: "colon"} : colon), "_", "each_array", "_", (lexer.has("lparen") ? {type: "lparen"} : lparen), "_", "each_args", "_", (lexer.has("rparen") ? {type: "rparen"} : rparen), "_", (lexer.has("fatarrow") ? {type: "fatarrow"} : fatarrow), "_", "lambda_body"], "postprocess": 
+        (data) => {
+          return {
+            type:'map_statement',
+            array: data[4],
+            arguments: data[8],
+            body: data[14]
+          }
+        }
+            },
     {"name": "each_array", "symbols": ["array_expressions"], "postprocess": 
         (data) => {
           return data[0]
@@ -258,6 +269,7 @@ var grammar = {
     {"name": "expression", "symbols": [(lexer.has("identifier") ? {type: "identifier"} : identifier)], "postprocess": id},
     {"name": "expression", "symbols": ["function_call"], "postprocess": id},
     {"name": "expression", "symbols": ["internal_function_call"], "postprocess": id},
+    {"name": "expression", "symbols": ["map_statement"], "postprocess": id},
     {"name": "operator", "symbols": [(lexer.has("greaterthan") ? {type: "greaterthan"} : greaterthan)], "postprocess": id},
     {"name": "operator", "symbols": [(lexer.has("lessthan") ? {type: "lessthan"} : lessthan)], "postprocess": id},
     {"name": "operator", "symbols": [(lexer.has("equalto") ? {type: "equalto"} : equalto)], "postprocess": id},

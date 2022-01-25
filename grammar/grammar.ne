@@ -39,6 +39,7 @@ statement
   | array {% id %}
   | each_statement {% id %}
   | math {% id %}
+  | map_statement {% id %}
 
 internal_statement
   -> internal_function_call {% id %}  
@@ -259,6 +260,20 @@ each_statement
       }
     %}
 
+map_statement
+  -> "map" _ %colon _ each_array _ %lparen _ each_args _ %rparen _ %fatarrow _ lambda_body  
+    {%
+      (data) => {
+        return {
+          type:'map_statement',
+          array: data[4],
+          arguments: data[8],
+          body: data[14]
+        }
+      }
+    %}
+
+
 each_array -> array_expressions 
   {%
     (data) => {
@@ -297,6 +312,7 @@ expression
   | %identifier {% id %}
   | function_call {% id %}
   | internal_function_call {% id %}
+  | map_statement {% id %}
 
 operator
   -> %greaterthan {% id %}
