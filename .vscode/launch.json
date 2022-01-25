@@ -40,6 +40,13 @@
       "request":"launch",
       "name":"test each.js",
       "program":"${workspaceFolder}\\dist\\each.js",
-    }
+    },
+    {
+      "type":"pwa-node",
+      "request":"launch",
+      "name":"generate each",
+      "program":"${workspaceFolder}\\generate.js",
+      "args":["each"]
+    },
   ]
 }
