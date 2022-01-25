@@ -267,13 +267,13 @@ each_array -> array_expressions
   %}
 
 each_args
-  -> expression _ %comma _ expression
+  -> expression _ (%comma _ expression):?
     {%
       (data) => {
         return {
           type:'each_args',
           itemToManipulate: data[0],
-          operateFunction: data[4]
+          operateFunction: data[2] ? data[2][2] : []
         }
       }
     %}

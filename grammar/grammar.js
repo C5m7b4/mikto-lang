@@ -231,12 +231,15 @@ var grammar = {
           return data[0]
         }
           },
-    {"name": "each_args", "symbols": ["expression", "_", (lexer.has("comma") ? {type: "comma"} : comma), "_", "expression"], "postprocess": 
+    {"name": "each_args$ebnf$1$subexpression$1", "symbols": [(lexer.has("comma") ? {type: "comma"} : comma), "_", "expression"]},
+    {"name": "each_args$ebnf$1", "symbols": ["each_args$ebnf$1$subexpression$1"], "postprocess": id},
+    {"name": "each_args$ebnf$1", "symbols": [], "postprocess": function(d) {return null;}},
+    {"name": "each_args", "symbols": ["expression", "_", "each_args$ebnf$1"], "postprocess": 
         (data) => {
           return {
             type:'each_args',
             itemToManipulate: data[0],
-            operateFunction: data[4]
+            operateFunction: data[2] ? data[2][2] : []
           }
         }
             },

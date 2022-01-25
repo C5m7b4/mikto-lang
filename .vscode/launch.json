@@ -34,6 +34,12 @@
       "name":"generate lambda2",
       "program":"${workspaceFolder}\\generate.js",
       "args":["lambda2"]
+    },
+    {
+      "type":"pwa-node",
+      "request":"launch",
+      "name":"test each.js",
+      "program":"${workspaceFolder}\\dist\\each.js",
     }
   ]
 }
