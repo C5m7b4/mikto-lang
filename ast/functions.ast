@@ -1,6 +1,6 @@
 [
  {
-  "type": "var-assign",
+  "type": "var_assign",
   "variable": {
    "type": "identifier",
    "value": "num",
