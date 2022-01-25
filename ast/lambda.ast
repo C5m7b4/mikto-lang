@@ -214,7 +214,7 @@
   ],
   "body": [
    {
-    "type": "function_call",
+    "type": "internal_function_call",
     "function_name": {
      "type": "identifier",
      "value": "print",

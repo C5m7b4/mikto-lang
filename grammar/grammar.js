@@ -35,14 +35,24 @@ var grammar = {
     {"name": "statement", "symbols": [(lexer.has("mlend") ? {type: "mlend"} : mlend)], "postprocess": id},
     {"name": "statement", "symbols": ["function_call"], "postprocess": id},
     {"name": "statement", "symbols": ["lambda"], "postprocess": id},
-    {"name": "statement", "symbols": ["if_Statment"], "postprocess": id},
+    {"name": "statement", "symbols": ["if_Statement"], "postprocess": id},
     {"name": "statement", "symbols": ["array"], "postprocess": id},
     {"name": "statement", "symbols": ["each_statement"], "postprocess": id},
+    {"name": "statement", "symbols": ["math"], "postprocess": id},
     {"name": "internal_statement", "symbols": ["internal_function_call"], "postprocess": id},
     {"name": "assignment", "symbols": [(lexer.has("identifier") ? {type: "identifier"} : identifier), "_", (lexer.has("assign") ? {type: "assign"} : assign), "_", "expression"], "postprocess": 
         (data) => {
           return {
             type:'var_assign',
+            variable: data[0],
+            value: data[4]
+          }
+        }
+            },
+    {"name": "assignment", "symbols": [(lexer.has("identifier") ? {type: "identifier"} : identifier), "_", (lexer.has("assign") ? {type: "assign"} : assign), "_", "internal_function_call"], "postprocess": 
+        (data) => {
+          return {
+            type: 'var_assign',
             variable: data[0],
             value: data[4]
           }
@@ -125,13 +135,18 @@ var grammar = {
           return data[2]
         }
             },
-    {"name": "if_Statment$ebnf$1$subexpression$1", "symbols": ["_", "else_if"]},
-    {"name": "if_Statment$ebnf$1", "symbols": ["if_Statment$ebnf$1$subexpression$1"], "postprocess": id},
-    {"name": "if_Statment$ebnf$1", "symbols": [], "postprocess": function(d) {return null;}},
-    {"name": "if_Statment$ebnf$2$subexpression$1", "symbols": ["_", "else"]},
-    {"name": "if_Statment$ebnf$2", "symbols": ["if_Statment$ebnf$2$subexpression$1"], "postprocess": id},
-    {"name": "if_Statment$ebnf$2", "symbols": [], "postprocess": function(d) {return null;}},
-    {"name": "if_Statment", "symbols": [{"literal":"if"}, "_", (lexer.has("colon") ? {type: "colon"} : colon), "_", "if_arguments", "_", (lexer.has("fatarrow") ? {type: "fatarrow"} : fatarrow), "_", "lambda_body", "if_Statment$ebnf$1", "if_Statment$ebnf$2"], "postprocess": 
+    {"name": "lambda_body", "symbols": [(lexer.has("lbrace") ? {type: "lbrace"} : lbrace), "__lb_", "internal_statements", "__lb_", (lexer.has("rbrace") ? {type: "rbrace"} : rbrace)], "postprocess": 
+        (data) => {
+          return data[2]
+        }
+            },
+    {"name": "if_Statement$ebnf$1$subexpression$1", "symbols": ["_", "else_if"]},
+    {"name": "if_Statement$ebnf$1", "symbols": ["if_Statement$ebnf$1$subexpression$1"], "postprocess": id},
+    {"name": "if_Statement$ebnf$1", "symbols": [], "postprocess": function(d) {return null;}},
+    {"name": "if_Statement$ebnf$2$subexpression$1", "symbols": ["_", "else"]},
+    {"name": "if_Statement$ebnf$2", "symbols": ["if_Statement$ebnf$2$subexpression$1"], "postprocess": id},
+    {"name": "if_Statement$ebnf$2", "symbols": [], "postprocess": function(d) {return null;}},
+    {"name": "if_Statement", "symbols": [{"literal":"if"}, "_", (lexer.has("colon") ? {type: "colon"} : colon), "_", "if_arguments", "_", (lexer.has("fatarrow") ? {type: "fatarrow"} : fatarrow), "_", "lambda_body", "if_Statement$ebnf$1", "if_Statement$ebnf$2"], "postprocess": 
         (data) => {
           return {
             type: 'if_statement',
@@ -225,14 +240,30 @@ var grammar = {
           }
         }
             },
+    {"name": "math", "symbols": ["expression", "_", "math_operator", "_", "expression"], "postprocess": 
+        (data) => {
+          return {
+            type: 'math',
+            exp1: data[0],
+            operator: data[2],
+            exp2: data[4]
+          }
+        }
+            },
     {"name": "expression", "symbols": [(lexer.has("string") ? {type: "string"} : string)], "postprocess": id},
     {"name": "expression", "symbols": [(lexer.has("number") ? {type: "number"} : number)], "postprocess": id},
     {"name": "expression", "symbols": [(lexer.has("identifier") ? {type: "identifier"} : identifier)], "postprocess": id},
     {"name": "expression", "symbols": ["function_call"], "postprocess": id},
+    {"name": "expression", "symbols": ["internal_function_call"], "postprocess": id},
     {"name": "operator", "symbols": [(lexer.has("greaterthan") ? {type: "greaterthan"} : greaterthan)], "postprocess": id},
     {"name": "operator", "symbols": [(lexer.has("lessthan") ? {type: "lessthan"} : lessthan)], "postprocess": id},
     {"name": "operator", "symbols": [(lexer.has("equalto") ? {type: "equalto"} : equalto)], "postprocess": id},
     {"name": "operator", "symbols": [(lexer.has("notequalto") ? {type: "notequalto"} : notequalto)], "postprocess": id},
+    {"name": "math_operator", "symbols": [(lexer.has("plus") ? {type: "plus"} : plus)], "postprocess": id},
+    {"name": "math_operator", "symbols": [(lexer.has("minus") ? {type: "minus"} : minus)], "postprocess": id},
+    {"name": "math_operator", "symbols": [(lexer.has("times") ? {type: "times"} : times)], "postprocess": id},
+    {"name": "math_operator", "symbols": [(lexer.has("divide") ? {type: "divide"} : divide)], "postprocess": id},
+    {"name": "math_operator", "symbols": [(lexer.has("mod") ? {type: "mod"} : mod)], "postprocess": id},
     {"name": "mlcomment$ebnf$1", "symbols": []},
     {"name": "mlcomment$ebnf$1", "symbols": ["mlcomment$ebnf$1", /[^*]/], "postprocess": function arrpush(d) {return d[0].concat([d[1]]);}},
     {"name": "mlcomment$ebnf$2", "symbols": []},

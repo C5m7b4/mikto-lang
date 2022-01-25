@@ -1,0 +1,202 @@
+[
+ {
+  "type": "var_assign",
+  "variable": {
+   "type": "identifier",
+   "value": "x",
+   "text": "x",
+   "offset": 0,
+   "lineBreaks": 0,
+   "line": 1,
+   "col": 1
+  },
+  "value": {
+   "type": "number",
+   "value": "5",
+   "text": "5",
+   "offset": 4,
+   "lineBreaks": 0,
+   "line": 1,
+   "col": 5
+  }
+ },
+ {
+  "type": "var_assign",
+  "variable": {
+   "type": "identifier",
+   "value": "y",
+   "text": "y",
+   "offset": 7,
+   "lineBreaks": 0,
+   "line": 2,
+   "col": 1
+  },
+  "value": {
+   "type": "number",
+   "value": "10",
+   "text": "10",
+   "offset": 11,
+   "lineBreaks": 0,
+   "line": 2,
+   "col": 5
+  }
+ },
+ {
+  "type": "lambda",
+  "lambda_name": {
+   "type": "identifier",
+   "value": "add",
+   "text": "add",
+   "offset": 17,
+   "lineBreaks": 0,
+   "line": 4,
+   "col": 1
+  },
+  "params": [
+   {
+    "type": "identifier",
+    "value": "x",
+    "text": "x",
+    "offset": 24,
+    "lineBreaks": 0,
+    "line": 4,
+    "col": 8
+   },
+   {
+    "type": "identifier",
+    "value": "y",
+    "text": "y",
+    "offset": 26,
+    "lineBreaks": 0,
+    "line": 4,
+    "col": 10
+   }
+  ],
+  "body": [
+   {
+    "type": "math",
+    "exp1": {
+     "type": "identifier",
+     "value": "x",
+     "text": "x",
+     "offset": 37,
+     "lineBreaks": 0,
+     "line": 5,
+     "col": 3
+    },
+    "operator": {
+     "type": "plus",
+     "value": "+",
+     "text": "+",
+     "offset": 39,
+     "lineBreaks": 0,
+     "line": 5,
+     "col": 5
+    },
+    "exp2": {
+     "type": "identifier",
+     "value": "y",
+     "text": "y",
+     "offset": 41,
+     "lineBreaks": 0,
+     "line": 5,
+     "col": 7
+    }
+   }
+  ]
+ },
+ {
+  "type": "lambda",
+  "lambda_name": {
+   "type": "identifier",
+   "value": "test",
+   "text": "test",
+   "offset": 49,
+   "lineBreaks": 0,
+   "line": 8,
+   "col": 1
+  },
+  "params": [],
+  "body": [
+   {
+    "type": "var_assign",
+    "variable": {
+     "type": "identifier",
+     "value": "sum",
+     "text": "sum",
+     "offset": 67,
+     "lineBreaks": 0,
+     "line": 9,
+     "col": 3
+    },
+    "value": {
+     "type": "internal_function_call",
+     "function_name": {
+      "type": "identifier",
+      "value": "add",
+      "text": "add",
+      "offset": 73,
+      "lineBreaks": 0,
+      "line": 9,
+      "col": 9
+     },
+     "arguments": [
+      {
+       "type": "identifier",
+       "value": "x",
+       "text": "x",
+       "offset": 77,
+       "lineBreaks": 0,
+       "line": 9,
+       "col": 13
+      },
+      {
+       "type": "identifier",
+       "value": "y",
+       "text": "y",
+       "offset": 79,
+       "lineBreaks": 0,
+       "line": 9,
+       "col": 15
+      }
+     ]
+    }
+   },
+   {
+    "type": "function_call",
+    "function_name": {
+     "type": "identifier",
+     "value": "print",
+     "text": "print",
+     "offset": 85,
+     "lineBreaks": 0,
+     "line": 10,
+     "col": 3
+    },
+    "arguments": [
+     {
+      "type": "identifier",
+      "value": "sum",
+      "text": "sum",
+      "offset": 91,
+      "lineBreaks": 0,
+      "line": 10,
+      "col": 9
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "type": "function_call",
+  "function_name": {
+   "type": "identifier",
+   "value": "test",
+   "text": "test",
+   "offset": 102,
+   "lineBreaks": 0,
+   "line": 13,
+   "col": 1
+  }
+ }
+]

@@ -24,9 +24,16 @@
     {
       "type":"pwa-node",
       "request":"launch",
-      "name":"generate",
+      "name":"generate lambda",
       "program":"${workspaceFolder}\\generate.js",
       "args":["lambda"]
+    },
+    {
+      "type":"pwa-node",
+      "request":"launch",
+      "name":"generate lambda2",
+      "program":"${workspaceFolder}\\generate.js",
+      "args":["lambda2"]
     }
   ]
 }
