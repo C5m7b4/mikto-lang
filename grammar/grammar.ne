@@ -174,7 +174,7 @@ array
     %}
 
 array_expressions
-  -> expression _ ((%comma):? _ expression):*
+  -> expression _ (%comma _ expression):*
     {%
       (data) => {
         const chunks = data[2]
@@ -182,6 +182,15 @@ array_expressions
         return [data[0], ...restParams]
       }
     %}
+  | expression (_ expression):*
+    {%
+      (data) => {
+        const chunks = data[1]
+        const restParams = chunks.map(chunk => chunk[1])
+        return [data[0], ...restParams]
+      }
+    %}
+
 
 each_statement
   -> "each" _ %colon _ each_array _ %lparen _ each_args _ %rparen _ %fatarrow _ lambda_body

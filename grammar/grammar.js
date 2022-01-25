@@ -151,15 +151,22 @@ var grammar = {
         }
             },
     {"name": "array_expressions$ebnf$1", "symbols": []},
-    {"name": "array_expressions$ebnf$1$subexpression$1$ebnf$1$subexpression$1", "symbols": [(lexer.has("comma") ? {type: "comma"} : comma)]},
-    {"name": "array_expressions$ebnf$1$subexpression$1$ebnf$1", "symbols": ["array_expressions$ebnf$1$subexpression$1$ebnf$1$subexpression$1"], "postprocess": id},
-    {"name": "array_expressions$ebnf$1$subexpression$1$ebnf$1", "symbols": [], "postprocess": function(d) {return null;}},
-    {"name": "array_expressions$ebnf$1$subexpression$1", "symbols": ["array_expressions$ebnf$1$subexpression$1$ebnf$1", "_", "expression"]},
+    {"name": "array_expressions$ebnf$1$subexpression$1", "symbols": [(lexer.has("comma") ? {type: "comma"} : comma), "_", "expression"]},
     {"name": "array_expressions$ebnf$1", "symbols": ["array_expressions$ebnf$1", "array_expressions$ebnf$1$subexpression$1"], "postprocess": function arrpush(d) {return d[0].concat([d[1]]);}},
     {"name": "array_expressions", "symbols": ["expression", "_", "array_expressions$ebnf$1"], "postprocess": 
         (data) => {
           const chunks = data[2]
           const restParams = chunks.map(chunk => chunk[2])
+          return [data[0], ...restParams]
+        }
+            },
+    {"name": "array_expressions$ebnf$2", "symbols": []},
+    {"name": "array_expressions$ebnf$2$subexpression$1", "symbols": ["_", "expression"]},
+    {"name": "array_expressions$ebnf$2", "symbols": ["array_expressions$ebnf$2", "array_expressions$ebnf$2$subexpression$1"], "postprocess": function arrpush(d) {return d[0].concat([d[1]]);}},
+    {"name": "array_expressions", "symbols": ["expression", "array_expressions$ebnf$2"], "postprocess": 
+        (data) => {
+          const chunks = data[1]
+          const restParams = chunks.map(chunk => chunk[1])
           return [data[0], ...restParams]
         }
             },

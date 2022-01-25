@@ -54,6 +54,16 @@ function generateLine(node) {
       return node.value;
     case 'identifier':
       return node.value;
+    case 'array':
+      const arrayName = node.name.value;
+      const arrayContents = node.contents
+        .map((arg) => {
+          const regExpArray = new RegExp("'", 'g');
+          let result = generateLine(arg);
+          return result.replace(regExpArray, '"');
+        })
+        .join(', ');
+      return `const ${arrayName} = [${arrayContents}];`;
     default:
       console.log(`unknown node type detected: ${node.type} $`);
   }
