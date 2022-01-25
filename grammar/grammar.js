@@ -107,7 +107,9 @@ var grammar = {
           return {
             type: 'if_statement',
             params: data[4],
-            body: data[8]
+            body: data[8],
+            elseif: data[9] ? data[9][1] : [],
+            else: data[10] ? data[10][1] : []
           }
         }
             },

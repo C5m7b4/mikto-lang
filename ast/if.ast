@@ -1,6 +1,6 @@
 [
  {
-  "type": "var-assign",
+  "type": "var_assign",
   "variable": {
    "type": "identifier",
    "value": "num1",
@@ -21,7 +21,7 @@
   }
  },
  {
-  "type": "var-assign",
+  "type": "var_assign",
   "variable": {
    "type": "identifier",
    "value": "num2",
@@ -42,7 +42,7 @@
   }
  },
  {
-  "type": "var-assign",
+  "type": "var_assign",
   "variable": {
    "type": "identifier",
    "value": "isValid",
@@ -118,65 +118,93 @@
      }
     ]
    }
-  ]
- },
- {
-  "type": "if_statement",
-  "params": {
-   "type": "if_arguments",
-   "param1": {
-    "type": "identifier",
-    "value": "num1",
-    "text": "num1",
-    "offset": 87,
-    "lineBreaks": 0,
-    "line": 9,
-    "col": 6
-   },
-   "operator": {
-    "type": "greaterthan",
-    "value": ">",
-    "text": ">",
-    "offset": 92,
-    "lineBreaks": 0,
-    "line": 9,
-    "col": 11
-   },
-   "param2": {
-    "type": "identifier",
-    "value": "num2",
-    "text": "num2",
-    "offset": 94,
-    "lineBreaks": 0,
-    "line": 9,
-    "col": 13
-   }
-  },
-  "body": [
-   {
-    "type": "function_call",
-    "function_name": {
+  ],
+  "elseif": {
+   "type": "else_if",
+   "arguments": {
+    "type": "if_arguments",
+    "param1": {
      "type": "identifier",
-     "value": "print",
-     "text": "print",
-     "offset": 107,
+     "value": "num1",
+     "text": "num1",
+     "offset": 87,
      "lineBreaks": 0,
-     "line": 10,
-     "col": 3
+     "line": 7,
+     "col": 12
     },
-    "arguments": [
-     {
+    "operator": {
+     "type": "equalto",
+     "value": "===",
+     "text": "===",
+     "offset": 92,
+     "lineBreaks": 0,
+     "line": 7,
+     "col": 17
+    },
+    "param2": {
+     "type": "identifier",
+     "value": "num2",
+     "text": "num2",
+     "offset": 96,
+     "lineBreaks": 0,
+     "line": 7,
+     "col": 21
+    }
+   },
+   "body": [
+    {
+     "type": "function_call",
+     "function_name": {
       "type": "identifier",
-      "value": "num1",
-      "text": "num1",
-      "offset": 113,
+      "value": "print",
+      "text": "print",
+      "offset": 109,
+      "lineBreaks": 0,
+      "line": 8,
+      "col": 3
+     },
+     "arguments": [
+      {
+       "type": "string",
+       "value": "\"they are the same\"",
+       "text": "\"they are the same\"",
+       "offset": 115,
+       "lineBreaks": 0,
+       "line": 8,
+       "col": 9
+      }
+     ]
+    }
+   ]
+  },
+  "else": {
+   "type": "else",
+   "body": [
+    {
+     "type": "function_call",
+     "function_name": {
+      "type": "identifier",
+      "value": "print",
+      "text": "print",
+      "offset": 152,
       "lineBreaks": 0,
       "line": 10,
-      "col": 9
-     }
-    ]
-   }
-  ]
+      "col": 3
+     },
+     "arguments": [
+      {
+       "type": "identifier",
+       "value": "num2",
+       "text": "num2",
+       "offset": 158,
+       "lineBreaks": 0,
+       "line": 10,
+       "col": 9
+      }
+     ]
+    }
+   ]
+  }
  },
  {
   "type": "if_statement",
@@ -186,28 +214,28 @@
     "type": "identifier",
     "value": "num1",
     "text": "num1",
-    "offset": 128,
+    "offset": 174,
     "lineBreaks": 0,
     "line": 13,
-    "col": 4
+    "col": 5
    },
    "operator": {
     "type": "greaterthan",
     "value": ">",
     "text": ">",
-    "offset": 132,
+    "offset": 179,
     "lineBreaks": 0,
     "line": 13,
-    "col": 8
+    "col": 10
    },
    "param2": {
     "type": "identifier",
     "value": "num2",
     "text": "num2",
-    "offset": 133,
+    "offset": 181,
     "lineBreaks": 0,
     "line": 13,
-    "col": 9
+    "col": 12
    }
   },
   "body": [
@@ -217,7 +245,7 @@
      "type": "identifier",
      "value": "print",
      "text": "print",
-     "offset": 144,
+     "offset": 194,
      "lineBreaks": 0,
      "line": 14,
      "col": 3
@@ -227,304 +255,43 @@
       "type": "identifier",
       "value": "num1",
       "text": "num1",
-      "offset": 150,
+      "offset": 200,
       "lineBreaks": 0,
       "line": 14,
       "col": 9
      }
     ]
    }
-  ]
- },
- {
-  "type": "if_statement",
-  "params": {
-   "type": "if_arguments",
-   "param1": {
-    "type": "identifier",
-    "value": "num1",
-    "text": "num1",
-    "offset": 165,
-    "lineBreaks": 0,
-    "line": 17,
-    "col": 4
-   },
-   "operator": {
-    "type": "lessthan",
-    "value": "<",
-    "text": "<",
-    "offset": 169,
-    "lineBreaks": 0,
-    "line": 17,
-    "col": 8
-   },
-   "param2": {
-    "type": "identifier",
-    "value": "num2",
-    "text": "num2",
-    "offset": 170,
-    "lineBreaks": 0,
-    "line": 17,
-    "col": 9
-   }
-  },
-  "body": [
-   {
-    "type": "function_call",
-    "function_name": {
-     "type": "identifier",
-     "value": "print",
-     "text": "print",
-     "offset": 183,
-     "lineBreaks": 0,
-     "line": 18,
-     "col": 3
-    },
-    "arguments": [
-     {
+  ],
+  "elseif": [],
+  "else": {
+   "type": "else",
+   "body": [
+    {
+     "type": "function_call",
+     "function_name": {
       "type": "identifier",
-      "value": "num2",
-      "text": "num2",
-      "offset": 189,
+      "value": "print",
+      "text": "print",
+      "offset": 222,
       "lineBreaks": 0,
-      "line": 18,
-      "col": 9
-     }
-    ]
-   }
-  ]
- },
- {
-  "type": "if_statement",
-  "params": {
-   "type": "if_arguments",
-   "param1": {
-    "type": "identifier",
-    "value": "num1",
-    "text": "num1",
-    "offset": 205,
-    "lineBreaks": 0,
-    "line": 21,
-    "col": 5
-   },
-   "operator": {
-    "type": "notequalto",
-    "value": "!=",
-    "text": "!=",
-    "offset": 210,
-    "lineBreaks": 0,
-    "line": 21,
-    "col": 10
-   },
-   "param2": {
-    "type": "identifier",
-    "value": "num2",
-    "text": "num2",
-    "offset": 213,
-    "lineBreaks": 0,
-    "line": 21,
-    "col": 13
-   }
-  },
-  "body": [
-   {
-    "type": "function_call",
-    "function_name": {
-     "type": "identifier",
-     "value": "print",
-     "text": "print",
-     "offset": 226,
-     "lineBreaks": 0,
-     "line": 22,
-     "col": 3
-    },
-    "arguments": [
-     {
-      "type": "identifier",
-      "value": "num2",
-      "text": "num2",
-      "offset": 232,
-      "lineBreaks": 0,
-      "line": 22,
-      "col": 9
-     }
-    ]
-   }
-  ]
- },
- {
-  "type": "if_statement",
-  "params": {
-   "type": "if_arguments",
-   "param1": {
-    "type": "identifier",
-    "value": "num1",
-    "text": "num1",
-    "offset": 246,
-    "lineBreaks": 0,
-    "line": 24,
-    "col": 5
-   },
-   "operator": {
-    "type": "notequalto",
-    "value": "!==",
-    "text": "!==",
-    "offset": 251,
-    "lineBreaks": 0,
-    "line": 24,
-    "col": 10
-   },
-   "param2": {
-    "type": "identifier",
-    "value": "num2",
-    "text": "num2",
-    "offset": 255,
-    "lineBreaks": 0,
-    "line": 24,
-    "col": 14
-   }
-  },
-  "body": [
-   {
-    "type": "function_call",
-    "function_name": {
-     "type": "identifier",
-     "value": "print",
-     "text": "print",
-     "offset": 268,
-     "lineBreaks": 0,
-     "line": 25,
-     "col": 3
-    },
-    "arguments": [
-     {
-      "type": "identifier",
-      "value": "num2",
-      "text": "num2",
-      "offset": 274,
-      "lineBreaks": 0,
-      "line": 25,
-      "col": 9
-     }
-    ]
-   }
-  ]
- },
- {
-  "type": "if_statement",
-  "params": {
-   "type": "if_arguments",
-   "param1": {
-    "type": "identifier",
-    "value": "num1",
-    "text": "num1",
-    "offset": 290,
-    "lineBreaks": 0,
-    "line": 28,
-    "col": 5
-   },
-   "operator": {
-    "type": "equalto",
-    "value": "==",
-    "text": "==",
-    "offset": 295,
-    "lineBreaks": 0,
-    "line": 28,
-    "col": 10
-   },
-   "param2": {
-    "type": "identifier",
-    "value": "num2",
-    "text": "num2",
-    "offset": 298,
-    "lineBreaks": 0,
-    "line": 28,
-    "col": 13
-   }
-  },
-  "body": [
-   {
-    "type": "function_call",
-    "function_name": {
-     "type": "identifier",
-     "value": "print",
-     "text": "print",
-     "offset": 311,
-     "lineBreaks": 0,
-     "line": 29,
-     "col": 3
-    },
-    "arguments": [
-     {
-      "type": "identifier",
-      "value": "num2",
-      "text": "num2",
-      "offset": 317,
-      "lineBreaks": 0,
-      "line": 29,
-      "col": 9
-     }
-    ]
-   }
-  ]
- },
- {
-  "type": "if_statement",
-  "params": {
-   "type": "if_arguments",
-   "param1": {
-    "type": "identifier",
-    "value": "num1",
-    "text": "num1",
-    "offset": 333,
-    "lineBreaks": 0,
-    "line": 32,
-    "col": 5
-   },
-   "operator": {
-    "type": "equalto",
-    "value": "===",
-    "text": "===",
-    "offset": 338,
-    "lineBreaks": 0,
-    "line": 32,
-    "col": 10
-   },
-   "param2": {
-    "type": "identifier",
-    "value": "num2",
-    "text": "num2",
-    "offset": 342,
-    "lineBreaks": 0,
-    "line": 32,
-    "col": 14
-   }
-  },
-  "body": [
-   {
-    "type": "function_call",
-    "function_name": {
-     "type": "identifier",
-     "value": "print",
-     "text": "print",
-     "offset": 355,
-     "lineBreaks": 0,
-     "line": 33,
-     "col": 3
-    },
-    "arguments": [
-     {
-      "type": "identifier",
-      "value": "num2",
-      "text": "num2",
-      "offset": 361,
-      "lineBreaks": 0,
-      "line": 33,
-      "col": 9
-     }
-    ]
-   }
-  ]
+      "line": 16,
+      "col": 3
+     },
+     "arguments": [
+      {
+       "type": "identifier",
+       "value": "num2",
+       "text": "num2",
+       "offset": 228,
+       "lineBreaks": 0,
+       "line": 16,
+       "col": 9
+      }
+     ]
+    }
+   ]
+  }
  },
  {
   "type": "if_statement",
@@ -534,125 +301,9 @@
     "type": "identifier",
     "value": "isValid",
     "text": "isValid",
-    "offset": 377,
+    "offset": 244,
     "lineBreaks": 0,
-    "line": 36,
-    "col": 5
-   },
-   "operator": {
-    "type": "equalto",
-    "value": "===",
-    "text": "===",
-    "offset": 385,
-    "lineBreaks": 0,
-    "line": 36,
-    "col": 13
-   },
-   "param2": {
-    "type": "identifier",
-    "value": "true",
-    "text": "true",
-    "offset": 389,
-    "lineBreaks": 0,
-    "line": 36,
-    "col": 17
-   }
-  },
-  "body": [
-   {
-    "type": "function_call",
-    "function_name": {
-     "type": "identifier",
-     "value": "print",
-     "text": "print",
-     "offset": 402,
-     "lineBreaks": 0,
-     "line": 37,
-     "col": 3
-    },
-    "arguments": [
-     {
-      "type": "identifier",
-      "value": "isValid",
-      "text": "isValid",
-      "offset": 408,
-      "lineBreaks": 0,
-      "line": 37,
-      "col": 9
-     }
-    ]
-   }
-  ]
- },
- {
-  "type": "if_statement",
-  "params": {
-   "type": "if_arguments",
-   "param1": {
-    "type": "identifier",
-    "value": "isValid",
-    "text": "isValid",
-    "offset": 427,
-    "lineBreaks": 0,
-    "line": 40,
-    "col": 5
-   },
-   "operator": {
-    "type": "equalto",
-    "value": "===",
-    "text": "===",
-    "offset": 435,
-    "lineBreaks": 0,
-    "line": 40,
-    "col": 13
-   },
-   "param2": {
-    "type": "identifier",
-    "value": "false",
-    "text": "false",
-    "offset": 439,
-    "lineBreaks": 0,
-    "line": 40,
-    "col": 17
-   }
-  },
-  "body": [
-   {
-    "type": "function_call",
-    "function_name": {
-     "type": "identifier",
-     "value": "print",
-     "text": "print",
-     "offset": 453,
-     "lineBreaks": 0,
-     "line": 41,
-     "col": 3
-    },
-    "arguments": [
-     {
-      "type": "identifier",
-      "value": "isValid",
-      "text": "isValid",
-      "offset": 459,
-      "lineBreaks": 0,
-      "line": 41,
-      "col": 9
-     }
-    ]
-   }
-  ]
- },
- {
-  "type": "if_statement",
-  "params": {
-   "type": "if_arguments",
-   "param1": {
-    "type": "identifier",
-    "value": "isValid",
-    "text": "isValid",
-    "offset": 478,
-    "lineBreaks": 0,
-    "line": 44,
+    "line": 19,
     "col": 5
    },
    "operator": [],
@@ -665,9 +316,9 @@
      "type": "identifier",
      "value": "print",
      "text": "print",
-     "offset": 494,
+     "offset": 260,
      "lineBreaks": 0,
-     "line": 45,
+     "line": 20,
      "col": 3
     },
     "arguments": [
@@ -675,14 +326,16 @@
       "type": "identifier",
       "value": "isValid",
       "text": "isValid",
-      "offset": 500,
+      "offset": 266,
       "lineBreaks": 0,
-      "line": 45,
+      "line": 20,
       "col": 9
      }
     ]
    }
-  ]
+  ],
+  "elseif": [],
+  "else": []
  },
  {
   "type": "if_statement",
@@ -692,27 +345,27 @@
     "type": "identifier",
     "value": "num1",
     "text": "num1",
-    "offset": 519,
+    "offset": 289,
     "lineBreaks": 0,
-    "line": 48,
+    "line": 25,
     "col": 5
    },
    "operator": {
     "type": "greaterthan",
     "value": ">",
     "text": ">",
-    "offset": 524,
+    "offset": 294,
     "lineBreaks": 0,
-    "line": 48,
+    "line": 25,
     "col": 10
    },
    "param2": {
     "type": "identifier",
     "value": "num2",
     "text": "num2",
-    "offset": 526,
+    "offset": 296,
     "lineBreaks": 0,
-    "line": 48,
+    "line": 25,
     "col": 12
    }
   },
@@ -723,7 +376,367 @@
      "type": "identifier",
      "value": "print",
      "text": "print",
-     "offset": 539,
+     "offset": 309,
+     "lineBreaks": 0,
+     "line": 26,
+     "col": 3
+    },
+    "arguments": [
+     {
+      "type": "identifier",
+      "value": "num1",
+      "text": "num1",
+      "offset": 315,
+      "lineBreaks": 0,
+      "line": 26,
+      "col": 9
+     }
+    ]
+   }
+  ],
+  "elseif": [],
+  "else": []
+ },
+ {
+  "type": "if_statement",
+  "params": {
+   "type": "if_arguments",
+   "param1": {
+    "type": "identifier",
+    "value": "num1",
+    "text": "num1",
+    "offset": 333,
+    "lineBreaks": 0,
+    "line": 29,
+    "col": 6
+   },
+   "operator": {
+    "type": "greaterthan",
+    "value": ">",
+    "text": ">",
+    "offset": 338,
+    "lineBreaks": 0,
+    "line": 29,
+    "col": 11
+   },
+   "param2": {
+    "type": "identifier",
+    "value": "num2",
+    "text": "num2",
+    "offset": 340,
+    "lineBreaks": 0,
+    "line": 29,
+    "col": 13
+   }
+  },
+  "body": [
+   {
+    "type": "function_call",
+    "function_name": {
+     "type": "identifier",
+     "value": "print",
+     "text": "print",
+     "offset": 353,
+     "lineBreaks": 0,
+     "line": 30,
+     "col": 3
+    },
+    "arguments": [
+     {
+      "type": "identifier",
+      "value": "num1",
+      "text": "num1",
+      "offset": 359,
+      "lineBreaks": 0,
+      "line": 30,
+      "col": 9
+     }
+    ]
+   }
+  ],
+  "elseif": [],
+  "else": []
+ },
+ {
+  "type": "if_statement",
+  "params": {
+   "type": "if_arguments",
+   "param1": {
+    "type": "identifier",
+    "value": "num1",
+    "text": "num1",
+    "offset": 374,
+    "lineBreaks": 0,
+    "line": 33,
+    "col": 4
+   },
+   "operator": {
+    "type": "greaterthan",
+    "value": ">",
+    "text": ">",
+    "offset": 378,
+    "lineBreaks": 0,
+    "line": 33,
+    "col": 8
+   },
+   "param2": {
+    "type": "identifier",
+    "value": "num2",
+    "text": "num2",
+    "offset": 379,
+    "lineBreaks": 0,
+    "line": 33,
+    "col": 9
+   }
+  },
+  "body": [
+   {
+    "type": "function_call",
+    "function_name": {
+     "type": "identifier",
+     "value": "print",
+     "text": "print",
+     "offset": 390,
+     "lineBreaks": 0,
+     "line": 34,
+     "col": 3
+    },
+    "arguments": [
+     {
+      "type": "identifier",
+      "value": "num1",
+      "text": "num1",
+      "offset": 396,
+      "lineBreaks": 0,
+      "line": 34,
+      "col": 9
+     }
+    ]
+   }
+  ],
+  "elseif": [],
+  "else": []
+ },
+ {
+  "type": "if_statement",
+  "params": {
+   "type": "if_arguments",
+   "param1": {
+    "type": "identifier",
+    "value": "num1",
+    "text": "num1",
+    "offset": 411,
+    "lineBreaks": 0,
+    "line": 37,
+    "col": 4
+   },
+   "operator": {
+    "type": "lessthan",
+    "value": "<",
+    "text": "<",
+    "offset": 415,
+    "lineBreaks": 0,
+    "line": 37,
+    "col": 8
+   },
+   "param2": {
+    "type": "identifier",
+    "value": "num2",
+    "text": "num2",
+    "offset": 416,
+    "lineBreaks": 0,
+    "line": 37,
+    "col": 9
+   }
+  },
+  "body": [
+   {
+    "type": "function_call",
+    "function_name": {
+     "type": "identifier",
+     "value": "print",
+     "text": "print",
+     "offset": 429,
+     "lineBreaks": 0,
+     "line": 38,
+     "col": 3
+    },
+    "arguments": [
+     {
+      "type": "identifier",
+      "value": "num2",
+      "text": "num2",
+      "offset": 435,
+      "lineBreaks": 0,
+      "line": 38,
+      "col": 9
+     }
+    ]
+   }
+  ],
+  "elseif": [],
+  "else": []
+ },
+ {
+  "type": "if_statement",
+  "params": {
+   "type": "if_arguments",
+   "param1": {
+    "type": "identifier",
+    "value": "num1",
+    "text": "num1",
+    "offset": 451,
+    "lineBreaks": 0,
+    "line": 41,
+    "col": 5
+   },
+   "operator": {
+    "type": "notequalto",
+    "value": "!=",
+    "text": "!=",
+    "offset": 456,
+    "lineBreaks": 0,
+    "line": 41,
+    "col": 10
+   },
+   "param2": {
+    "type": "identifier",
+    "value": "num2",
+    "text": "num2",
+    "offset": 459,
+    "lineBreaks": 0,
+    "line": 41,
+    "col": 13
+   }
+  },
+  "body": [
+   {
+    "type": "function_call",
+    "function_name": {
+     "type": "identifier",
+     "value": "print",
+     "text": "print",
+     "offset": 472,
+     "lineBreaks": 0,
+     "line": 42,
+     "col": 3
+    },
+    "arguments": [
+     {
+      "type": "identifier",
+      "value": "num2",
+      "text": "num2",
+      "offset": 478,
+      "lineBreaks": 0,
+      "line": 42,
+      "col": 9
+     }
+    ]
+   }
+  ],
+  "elseif": [],
+  "else": []
+ },
+ {
+  "type": "if_statement",
+  "params": {
+   "type": "if_arguments",
+   "param1": {
+    "type": "identifier",
+    "value": "num1",
+    "text": "num1",
+    "offset": 492,
+    "lineBreaks": 0,
+    "line": 44,
+    "col": 5
+   },
+   "operator": {
+    "type": "notequalto",
+    "value": "!==",
+    "text": "!==",
+    "offset": 497,
+    "lineBreaks": 0,
+    "line": 44,
+    "col": 10
+   },
+   "param2": {
+    "type": "identifier",
+    "value": "num2",
+    "text": "num2",
+    "offset": 501,
+    "lineBreaks": 0,
+    "line": 44,
+    "col": 14
+   }
+  },
+  "body": [
+   {
+    "type": "function_call",
+    "function_name": {
+     "type": "identifier",
+     "value": "print",
+     "text": "print",
+     "offset": 514,
+     "lineBreaks": 0,
+     "line": 45,
+     "col": 3
+    },
+    "arguments": [
+     {
+      "type": "identifier",
+      "value": "num2",
+      "text": "num2",
+      "offset": 520,
+      "lineBreaks": 0,
+      "line": 45,
+      "col": 9
+     }
+    ]
+   }
+  ],
+  "elseif": [],
+  "else": []
+ },
+ {
+  "type": "if_statement",
+  "params": {
+   "type": "if_arguments",
+   "param1": {
+    "type": "identifier",
+    "value": "num1",
+    "text": "num1",
+    "offset": 536,
+    "lineBreaks": 0,
+    "line": 48,
+    "col": 5
+   },
+   "operator": {
+    "type": "equalto",
+    "value": "==",
+    "text": "==",
+    "offset": 541,
+    "lineBreaks": 0,
+    "line": 48,
+    "col": 10
+   },
+   "param2": {
+    "type": "identifier",
+    "value": "num2",
+    "text": "num2",
+    "offset": 544,
+    "lineBreaks": 0,
+    "line": 48,
+    "col": 13
+   }
+  },
+  "body": [
+   {
+    "type": "function_call",
+    "function_name": {
+     "type": "identifier",
+     "value": "print",
+     "text": "print",
+     "offset": 557,
      "lineBreaks": 0,
      "line": 49,
      "col": 3
@@ -731,16 +744,18 @@
     "arguments": [
      {
       "type": "identifier",
-      "value": "num1",
-      "text": "num1",
-      "offset": 545,
+      "value": "num2",
+      "text": "num2",
+      "offset": 563,
       "lineBreaks": 0,
       "line": 49,
       "col": 9
      }
     ]
    }
-  ]
+  ],
+  "elseif": [],
+  "else": []
  },
  {
   "type": "if_statement",
@@ -750,28 +765,28 @@
     "type": "identifier",
     "value": "num1",
     "text": "num1",
-    "offset": 589,
+    "offset": 579,
     "lineBreaks": 0,
-    "line": 54,
+    "line": 52,
     "col": 5
    },
    "operator": {
-    "type": "greaterthan",
-    "value": ">",
-    "text": ">",
-    "offset": 594,
+    "type": "equalto",
+    "value": "===",
+    "text": "===",
+    "offset": 584,
     "lineBreaks": 0,
-    "line": 54,
+    "line": 52,
     "col": 10
    },
    "param2": {
     "type": "identifier",
     "value": "num2",
     "text": "num2",
-    "offset": 596,
+    "offset": 588,
     "lineBreaks": 0,
-    "line": 54,
-    "col": 12
+    "line": 52,
+    "col": 14
    }
   },
   "body": [
@@ -781,23 +796,145 @@
      "type": "identifier",
      "value": "print",
      "text": "print",
-     "offset": 609,
+     "offset": 601,
      "lineBreaks": 0,
-     "line": 55,
+     "line": 53,
      "col": 3
     },
     "arguments": [
      {
       "type": "identifier",
-      "value": "num1",
-      "text": "num1",
-      "offset": 615,
+      "value": "num2",
+      "text": "num2",
+      "offset": 607,
       "lineBreaks": 0,
-      "line": 55,
+      "line": 53,
       "col": 9
      }
     ]
    }
-  ]
+  ],
+  "elseif": [],
+  "else": []
+ },
+ {
+  "type": "if_statement",
+  "params": {
+   "type": "if_arguments",
+   "param1": {
+    "type": "identifier",
+    "value": "isValid",
+    "text": "isValid",
+    "offset": 623,
+    "lineBreaks": 0,
+    "line": 56,
+    "col": 5
+   },
+   "operator": {
+    "type": "equalto",
+    "value": "===",
+    "text": "===",
+    "offset": 631,
+    "lineBreaks": 0,
+    "line": 56,
+    "col": 13
+   },
+   "param2": {
+    "type": "identifier",
+    "value": "true",
+    "text": "true",
+    "offset": 635,
+    "lineBreaks": 0,
+    "line": 56,
+    "col": 17
+   }
+  },
+  "body": [
+   {
+    "type": "function_call",
+    "function_name": {
+     "type": "identifier",
+     "value": "print",
+     "text": "print",
+     "offset": 648,
+     "lineBreaks": 0,
+     "line": 57,
+     "col": 3
+    },
+    "arguments": [
+     {
+      "type": "identifier",
+      "value": "isValid",
+      "text": "isValid",
+      "offset": 654,
+      "lineBreaks": 0,
+      "line": 57,
+      "col": 9
+     }
+    ]
+   }
+  ],
+  "elseif": [],
+  "else": []
+ },
+ {
+  "type": "if_statement",
+  "params": {
+   "type": "if_arguments",
+   "param1": {
+    "type": "identifier",
+    "value": "isValid",
+    "text": "isValid",
+    "offset": 673,
+    "lineBreaks": 0,
+    "line": 60,
+    "col": 5
+   },
+   "operator": {
+    "type": "equalto",
+    "value": "===",
+    "text": "===",
+    "offset": 681,
+    "lineBreaks": 0,
+    "line": 60,
+    "col": 13
+   },
+   "param2": {
+    "type": "identifier",
+    "value": "false",
+    "text": "false",
+    "offset": 685,
+    "lineBreaks": 0,
+    "line": 60,
+    "col": 17
+   }
+  },
+  "body": [
+   {
+    "type": "function_call",
+    "function_name": {
+     "type": "identifier",
+     "value": "print",
+     "text": "print",
+     "offset": 699,
+     "lineBreaks": 0,
+     "line": 61,
+     "col": 3
+    },
+    "arguments": [
+     {
+      "type": "identifier",
+      "value": "isValid",
+      "text": "isValid",
+      "offset": 705,
+      "lineBreaks": 0,
+      "line": 61,
+      "col": 9
+     }
+    ]
+   }
+  ],
+  "elseif": [],
+  "else": []
  }
 ]
