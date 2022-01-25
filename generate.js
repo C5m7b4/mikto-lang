@@ -44,9 +44,11 @@ function generateLine(node) {
         }
       } else {
         if (arguments) {
-          return `function ${functionName}(${arguments})`;
+          return `\nfunction ${functionName}(${arguments})`;
         } else {
-          return `function ${functionName}();`;
+          // if there are no arguments,
+          // then we should probably just be calling the function
+          return `\n${functionName}();`;
         }
       }
     case 'internal_function_call':
@@ -60,9 +62,9 @@ function generateLine(node) {
         }
       } else {
         if (internalArguments) {
-          return `${internalFunctionName}(${internalArguments});`;
+          return `${internalFunctionName}(${internalArguments})`;
         } else {
-          return `${internalFunctionName}();`;
+          return `${internalFunctionName}()`;
         }
       }
     case 'string':
@@ -93,8 +95,8 @@ function generateLine(node) {
             return `\t${lambdaCode}`;
           }
         })
-        .join(';\n');
-      return `const ${lambdaName} = (${params}) => {\n${lambdaBody}\n};`;
+        .join('\n');
+      return `\nconst ${lambdaName} = (${params}) => {\n${lambdaBody}\n}`;
     case 'if_statement':
       return generateIf(node, generateLine, indent);
     case 'each_statement':
@@ -105,8 +107,13 @@ function generateLine(node) {
       return `${eachArray}.forEach((${manipulator}, ${operateFunction}) => {\n${indent(
         eachBody
       )}\n})`;
+    case 'math':
+      const mathExp1 = node.exp1.value;
+      const mathExp2 = node.exp2.value;
+      const mathOperator = node.operator.value;
+      return `${mathExp1} ${mathOperator} ${mathExp2};`;
     default:
-      console.log(`unknown node type detected: ${node.type} $`);
+      console.log(`unknown node type detected: ${node.type}`);
   }
 }
 
