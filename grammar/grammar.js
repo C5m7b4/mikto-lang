@@ -17,6 +17,17 @@ var grammar = {
           return [data[1], ...restParams]
         }
             },
+    {"name": "statements", "symbols": ["internal_statements"], "postprocess": id},
+    {"name": "internal_statements$ebnf$1", "symbols": []},
+    {"name": "internal_statements$ebnf$1$subexpression$1", "symbols": ["__lb_", "internal_statement"]},
+    {"name": "internal_statements$ebnf$1", "symbols": ["internal_statements$ebnf$1", "internal_statements$ebnf$1$subexpression$1"], "postprocess": function arrpush(d) {return d[0].concat([d[1]]);}},
+    {"name": "internal_statements", "symbols": ["_ml", "internal_statement", "internal_statements$ebnf$1", "_ml"], "postprocess": 
+        (data) => {
+          const chunks = data[2];
+          const restParams = chunks.map(chunk => chunk[1])
+          return [data[1], ...restParams]
+        }
+            },
     {"name": "statement", "symbols": ["assignment"], "postprocess": id},
     {"name": "statement", "symbols": [(lexer.has("comment") ? {type: "comment"} : comment)], "postprocess": id},
     {"name": "statement", "symbols": [(lexer.has("mlcomment") ? {type: "mlcomment"} : mlcomment)], "postprocess": id},
@@ -27,6 +38,7 @@ var grammar = {
     {"name": "statement", "symbols": ["if_Statment"], "postprocess": id},
     {"name": "statement", "symbols": ["array"], "postprocess": id},
     {"name": "statement", "symbols": ["each_statement"], "postprocess": id},
+    {"name": "internal_statement", "symbols": ["internal_function_call"], "postprocess": id},
     {"name": "assignment", "symbols": [(lexer.has("identifier") ? {type: "identifier"} : identifier), "_", (lexer.has("assign") ? {type: "assign"} : assign), "_", "expression"], "postprocess": 
         (data) => {
           return {
@@ -48,6 +60,23 @@ var grammar = {
         (data) => {
           return {
             type: 'function_call',
+            function_name: data[0],
+            arguments: data[4]
+          }
+        }
+            },
+    {"name": "internal_function_call", "symbols": [(lexer.has("identifier") ? {type: "identifier"} : identifier), "_", (lexer.has("lparen") ? {type: "lparen"} : lparen), "_ml", (lexer.has("rparen") ? {type: "rparen"} : rparen)], "postprocess": 
+        (data) => {
+          return {
+            type: 'internal_function_call',
+            function_name: data[0]
+          }
+        }
+            },
+    {"name": "internal_function_call", "symbols": [(lexer.has("identifier") ? {type: "identifier"} : identifier), "_", (lexer.has("lparen") ? {type: "lparen"} : lparen), "_ml", "argument_list", "_ml", (lexer.has("rparen") ? {type: "rparen"} : rparen)], "postprocess": 
+        (data) => {
+          return {
+            type: 'internal_function_call',
             function_name: data[0],
             arguments: data[4]
           }
@@ -182,7 +211,11 @@ var grammar = {
           }
         }
             },
-    {"name": "each_array", "symbols": ["array_expressions"], "postprocess": id},
+    {"name": "each_array", "symbols": ["array_expressions"], "postprocess": 
+        (data) => {
+          return data[0]
+        }
+          },
     {"name": "each_args", "symbols": ["expression", "_", (lexer.has("comma") ? {type: "comma"} : comma), "_", "expression"], "postprocess": 
         (data) => {
           return {

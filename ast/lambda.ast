@@ -61,16 +61,25 @@
     "lineBreaks": 0,
     "line": 3,
     "col": 9
+   },
+   {
+    "type": "identifier",
+    "value": "num2",
+    "text": "num2",
+    "offset": 33,
+    "lineBreaks": 0,
+    "line": 3,
+    "col": 14
    }
   ],
   "body": [
    {
-    "type": "function_call",
+    "type": "internal_function_call",
     "function_name": {
      "type": "identifier",
      "value": "print",
      "text": "print",
-     "offset": 42,
+     "offset": 47,
      "lineBreaks": 0,
      "line": 4,
      "col": 3
@@ -80,10 +89,102 @@
       "type": "identifier",
       "value": "num1",
       "text": "num1",
-      "offset": 48,
+      "offset": 53,
       "lineBreaks": 0,
       "line": 4,
       "col": 9
+     }
+    ]
+   },
+   {
+    "type": "internal_function_call",
+    "function_name": {
+     "type": "identifier",
+     "value": "print",
+     "text": "print",
+     "offset": 62,
+     "lineBreaks": 0,
+     "line": 5,
+     "col": 3
+    },
+    "arguments": [
+     {
+      "type": "identifier",
+      "value": "num2",
+      "text": "num2",
+      "offset": 68,
+      "lineBreaks": 0,
+      "line": 5,
+      "col": 9
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "type": "function_call",
+  "function_name": {
+   "type": "identifier",
+   "value": "main",
+   "text": "main",
+   "offset": 80,
+   "lineBreaks": 0,
+   "line": 8,
+   "col": 1
+  }
+ },
+ {
+  "type": "lambda",
+  "lambda_name": {
+   "type": "identifier",
+   "value": "test",
+   "text": "test",
+   "offset": 90,
+   "lineBreaks": 0,
+   "line": 10,
+   "col": 1
+  },
+  "params": [
+   {
+    "type": "identifier",
+    "value": "x",
+    "text": "x",
+    "offset": 98,
+    "lineBreaks": 0,
+    "line": 10,
+    "col": 9
+   }
+  ],
+  "body": [
+   {
+    "type": "internal_function_call",
+    "function_name": {
+     "type": "identifier",
+     "value": "main",
+     "text": "main",
+     "offset": 109,
+     "lineBreaks": 0,
+     "line": 11,
+     "col": 3
+    },
+    "arguments": [
+     {
+      "type": "identifier",
+      "value": "x",
+      "text": "x",
+      "offset": 114,
+      "lineBreaks": 0,
+      "line": 11,
+      "col": 8
+     },
+     {
+      "type": "number",
+      "value": "3",
+      "text": "3",
+      "offset": 116,
+      "lineBreaks": 0,
+      "line": 11,
+      "col": 10
      }
     ]
    }
@@ -95,9 +196,9 @@
    "type": "identifier",
    "value": "second",
    "text": "second",
-   "offset": 60,
+   "offset": 129,
    "lineBreaks": 0,
-   "line": 7,
+   "line": 16,
    "col": 1
   },
   "params": [
@@ -105,9 +206,9 @@
     "type": "identifier",
     "value": "num1",
     "text": "num1",
-    "offset": 68,
+    "offset": 137,
     "lineBreaks": 0,
-    "line": 7,
+    "line": 16,
     "col": 9
    }
   ],
@@ -118,9 +219,9 @@
      "type": "identifier",
      "value": "print",
      "text": "print",
-     "offset": 82,
+     "offset": 151,
      "lineBreaks": 0,
-     "line": 8,
+     "line": 17,
      "col": 3
     },
     "arguments": [
@@ -128,9 +229,9 @@
       "type": "identifier",
       "value": "num1",
       "text": "num1",
-      "offset": 88,
+      "offset": 157,
       "lineBreaks": 0,
-      "line": 8,
+      "line": 17,
       "col": 9
      }
     ]
@@ -143,9 +244,9 @@
    "type": "identifier",
    "value": "third",
    "text": "third",
-   "offset": 100,
+   "offset": 169,
    "lineBreaks": 0,
-   "line": 11,
+   "line": 20,
    "col": 1
   },
   "params": [
@@ -153,22 +254,22 @@
     "type": "identifier",
     "value": "num1",
     "text": "num1",
-    "offset": 110,
+    "offset": 179,
     "lineBreaks": 0,
-    "line": 11,
+    "line": 20,
     "col": 11
    }
   ],
   "body": [
    {
-    "type": "function_call",
+    "type": "internal_function_call",
     "function_name": {
      "type": "identifier",
      "value": "print",
      "text": "print",
-     "offset": 125,
+     "offset": 194,
      "lineBreaks": 0,
-     "line": 12,
+     "line": 21,
      "col": 3
     },
     "arguments": [
@@ -176,9 +277,9 @@
       "type": "identifier",
       "value": "num1",
       "text": "num1",
-      "offset": 131,
+      "offset": 200,
       "lineBreaks": 0,
-      "line": 12,
+      "line": 21,
       "col": 9
      }
     ]
@@ -191,9 +292,9 @@
    "type": "identifier",
    "value": "fourth",
    "text": "fourth",
-   "offset": 143,
+   "offset": 212,
    "lineBreaks": 0,
-   "line": 15,
+   "line": 24,
    "col": 1
   },
   "params": [],
@@ -202,9 +303,9 @@
     "type": "number",
     "value": "5",
     "text": "5",
-    "offset": 158,
+    "offset": 227,
     "lineBreaks": 0,
-    "line": 15,
+    "line": 24,
     "col": 16
    }
   ]
@@ -215,9 +316,9 @@
    "type": "identifier",
    "value": "fifth",
    "text": "fifth",
-   "offset": 163,
+   "offset": 232,
    "lineBreaks": 0,
-   "line": 17,
+   "line": 26,
    "col": 1
   },
   "params": [],
@@ -226,9 +327,9 @@
     "type": "number",
     "value": "5",
     "text": "5",
-    "offset": 176,
+    "offset": 245,
     "lineBreaks": 0,
-    "line": 17,
+    "line": 26,
     "col": 14
    }
   ]
@@ -239,9 +340,9 @@
    "type": "identifier",
    "value": "six",
    "text": "six",
-   "offset": 181,
+   "offset": 250,
    "lineBreaks": 0,
-   "line": 19,
+   "line": 28,
    "col": 1
   },
   "params": [],
@@ -250,9 +351,9 @@
     "type": "number",
     "value": "5",
     "text": "5",
-    "offset": 190,
+    "offset": 259,
     "lineBreaks": 0,
-    "line": 19,
+    "line": 28,
     "col": 10
    }
   ]
@@ -263,9 +364,9 @@
    "type": "identifier",
    "value": "seven",
    "text": "seven",
-   "offset": 195,
+   "offset": 264,
    "lineBreaks": 0,
-   "line": 21,
+   "line": 30,
    "col": 1
   },
   "params": [
@@ -273,31 +374,31 @@
     "type": "identifier",
     "value": "num1",
     "text": "num1",
-    "offset": 204,
+    "offset": 273,
     "lineBreaks": 0,
-    "line": 21,
+    "line": 30,
     "col": 10
    },
    {
     "type": "identifier",
     "value": "num2",
     "text": "num2",
-    "offset": 209,
+    "offset": 278,
     "lineBreaks": 0,
-    "line": 21,
+    "line": 30,
     "col": 15
    }
   ],
   "body": [
    {
-    "type": "function_call",
+    "type": "internal_function_call",
     "function_name": {
      "type": "identifier",
      "value": "print",
      "text": "print",
-     "offset": 223,
+     "offset": 292,
      "lineBreaks": 0,
-     "line": 22,
+     "line": 31,
      "col": 3
     },
     "arguments": [
@@ -305,22 +406,22 @@
       "type": "identifier",
       "value": "num1",
       "text": "num1",
-      "offset": 229,
+      "offset": 298,
       "lineBreaks": 0,
-      "line": 22,
+      "line": 31,
       "col": 9
      }
     ]
    },
    {
-    "type": "function_call",
+    "type": "internal_function_call",
     "function_name": {
      "type": "identifier",
      "value": "print",
      "text": "print",
-     "offset": 238,
+     "offset": 307,
      "lineBreaks": 0,
-     "line": 23,
+     "line": 32,
      "col": 3
     },
     "arguments": [
@@ -328,9 +429,9 @@
       "type": "identifier",
       "value": "num2",
       "text": "num2",
-      "offset": 244,
+      "offset": 313,
       "lineBreaks": 0,
-      "line": 23,
+      "line": 32,
       "col": 9
      }
     ]

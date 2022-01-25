@@ -35,7 +35,7 @@ function generateLine(node) {
     case 'function_call':
       const functionName = node.function_name.value;
       const arguments =
-        node.arguments && node.arguments.map(generateLine).join(',');
+        node.arguments && node.arguments.map(generateLine).join(', ');
       if (functionName === 'print') {
         if (arguments) {
           return `console.log(${arguments});`;
@@ -44,9 +44,25 @@ function generateLine(node) {
         }
       } else {
         if (arguments) {
-          return `function ${functionName}(${arguments})}`;
+          return `function ${functionName}(${arguments})`;
         } else {
           return `function ${functionName}();`;
+        }
+      }
+    case 'internal_function_call':
+      const internalFunctionName = node.function_name.value;
+      const internalArguments = node.arguments.map(generateLine).join(', ');
+      if (internalFunctionName === 'print') {
+        if (internalArguments) {
+          return `console.log(${internalArguments});`;
+        } else {
+          return `console.log();`;
+        }
+      } else {
+        if (internalArguments) {
+          return `${internalFunctionName}(${internalArguments});`;
+        } else {
+          return `${internalFunctionName}();`;
         }
       }
     case 'string':
@@ -72,15 +88,23 @@ function generateLine(node) {
         .map((arg, i) => {
           const lambdaCode = generateLine(arg);
           if (i === node.body.length - 1) {
-            return `\treturn ${lambdaCode};`;
+            return `\treturn ${lambdaCode}`;
           } else {
-            return `\t${lambdaCode};`;
+            return `\t${lambdaCode}`;
           }
         })
         .join(';\n');
       return `const ${lambdaName} = (${params}) => {\n${lambdaBody}\n};`;
     case 'if_statement':
       return generateIf(node, generateLine, indent);
+    case 'each_statement':
+      const eachArray = node.array[0].value;
+      const manipulator = node.arguments.itemToManipulate.value;
+      const operateFunction = node.arguments.operateFunction.value;
+      const eachBody = node.body.map(generateLine).join(';\n');
+      return `${eachArray}.forEach((${manipulator}, ${operateFunction}) => {\n${indent(
+        eachBody
+      )}\n})`;
     default:
       console.log(`unknown node type detected: ${node.type} $`);
   }
