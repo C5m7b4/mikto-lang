@@ -30,7 +30,7 @@ var grammar = {
     {"name": "assignment", "symbols": [(lexer.has("identifier") ? {type: "identifier"} : identifier), "_", (lexer.has("assign") ? {type: "assign"} : assign), "_", "expression"], "postprocess": 
         (data) => {
           return {
-            type:'var-assign',
+            type:'var_assign',
             variable: data[0],
             value: data[4]
           }
