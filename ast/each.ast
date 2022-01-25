@@ -80,8 +80,8 @@
   "type": "lambda",
   "lambda_name": {
    "type": "identifier",
-   "value": "addThree",
-   "text": "addThree",
+   "value": "add",
+   "text": "add",
    "offset": 24,
    "lineBreaks": 0,
    "line": 3,
@@ -92,41 +92,140 @@
     "type": "identifier",
     "value": "x",
     "text": "x",
-    "offset": 36,
+    "offset": 31,
     "lineBreaks": 0,
     "line": 3,
+    "col": 8
+   },
+   {
+    "type": "identifier",
+    "value": "y",
+    "text": "y",
+    "offset": 33,
+    "lineBreaks": 0,
+    "line": 3,
+    "col": 10
+   }
+  ],
+  "body": [
+   {
+    "type": "math",
+    "exp1": {
+     "type": "identifier",
+     "value": "x",
+     "text": "x",
+     "offset": 44,
+     "lineBreaks": 0,
+     "line": 4,
+     "col": 3
+    },
+    "operator": {
+     "type": "plus",
+     "value": "+",
+     "text": "+",
+     "offset": 46,
+     "lineBreaks": 0,
+     "line": 4,
+     "col": 5
+    },
+    "exp2": {
+     "type": "identifier",
+     "value": "y",
+     "text": "y",
+     "offset": 48,
+     "lineBreaks": 0,
+     "line": 4,
+     "col": 7
+    }
+   }
+  ]
+ },
+ {
+  "type": "lambda",
+  "lambda_name": {
+   "type": "identifier",
+   "value": "addThree",
+   "text": "addThree",
+   "offset": 56,
+   "lineBreaks": 0,
+   "line": 7,
+   "col": 1
+  },
+  "params": [
+   {
+    "type": "identifier",
+    "value": "x",
+    "text": "x",
+    "offset": 68,
+    "lineBreaks": 0,
+    "line": 7,
     "col": 13
    }
   ],
   "body": [
    {
-    "type": "internal_function_call",
+    "type": "var_assign",
+    "variable": {
+     "type": "identifier",
+     "value": "result",
+     "text": "result",
+     "offset": 79,
+     "lineBreaks": 0,
+     "line": 8,
+     "col": 3
+    },
+    "value": {
+     "type": "internal_function_call",
+     "function_name": {
+      "type": "identifier",
+      "value": "add",
+      "text": "add",
+      "offset": 88,
+      "lineBreaks": 0,
+      "line": 8,
+      "col": 12
+     },
+     "arguments": [
+      {
+       "type": "identifier",
+       "value": "x",
+       "text": "x",
+       "offset": 92,
+       "lineBreaks": 0,
+       "line": 8,
+       "col": 16
+      },
+      {
+       "type": "number",
+       "value": "3",
+       "text": "3",
+       "offset": 94,
+       "lineBreaks": 0,
+       "line": 8,
+       "col": 18
+      }
+     ]
+    }
+   },
+   {
+    "type": "function_call",
     "function_name": {
      "type": "identifier",
-     "value": "add",
-     "text": "add",
-     "offset": 47,
+     "value": "print",
+     "text": "print",
+     "offset": 100,
      "lineBreaks": 0,
-     "line": 4,
+     "line": 9,
      "col": 3
     },
     "arguments": [
      {
       "type": "identifier",
-      "value": "x",
-      "text": "x",
-      "offset": 51,
+      "value": "result",
+      "text": "result",
+      "offset": 106,
       "lineBreaks": 0,
-      "line": 4,
-      "col": 7
-     },
-     {
-      "type": "number",
-      "value": "3",
-      "text": "3",
-      "offset": 53,
-      "lineBreaks": 0,
-      "line": 4,
+      "line": 9,
       "col": 9
      }
     ]
@@ -140,9 +239,9 @@
     "type": "identifier",
     "value": "arr",
     "text": "arr",
-    "offset": 68,
+    "offset": 126,
     "lineBreaks": 0,
-    "line": 7,
+    "line": 12,
     "col": 7
    }
   ],
@@ -152,20 +251,12 @@
     "type": "identifier",
     "value": "item",
     "text": "item",
-    "offset": 73,
+    "offset": 131,
     "lineBreaks": 0,
-    "line": 7,
+    "line": 12,
     "col": 12
    },
-   "operateFunction": {
-    "type": "identifier",
-    "value": "addThree",
-    "text": "addThree",
-    "offset": 79,
-    "lineBreaks": 0,
-    "line": 7,
-    "col": 18
-   }
+   "operateFunction": []
   },
   "body": [
    {
@@ -174,9 +265,9 @@
      "type": "identifier",
      "value": "addThree",
      "text": "addThree",
-     "offset": 97,
+     "offset": 145,
      "lineBreaks": 0,
-     "line": 8,
+     "line": 13,
      "col": 3
     },
     "arguments": [
@@ -184,9 +275,9 @@
       "type": "identifier",
       "value": "item",
       "text": "item",
-      "offset": 106,
+      "offset": 154,
       "lineBreaks": 0,
-      "line": 8,
+      "line": 13,
       "col": 12
      }
     ]
