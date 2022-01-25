@@ -1,10 +1,10 @@
 [
  {
-  "type": "var-assign",
+  "type": "var_assign",
   "variable": {
    "type": "identifier",
-   "value": "num",
-   "text": "num",
+   "value": "num1",
+   "text": "num1",
    "offset": 0,
    "lineBreaks": 0,
    "line": 1,
@@ -14,10 +14,31 @@
    "type": "number",
    "value": "5",
    "text": "5",
-   "offset": 6,
+   "offset": 7,
    "lineBreaks": 0,
    "line": 1,
-   "col": 7
+   "col": 8
+  }
+ },
+ {
+  "type": "var_assign",
+  "variable": {
+   "type": "identifier",
+   "value": "num2",
+   "text": "num2",
+   "offset": 10,
+   "lineBreaks": 0,
+   "line": 2,
+   "col": 1
+  },
+  "value": {
+   "type": "number",
+   "value": "6",
+   "text": "6",
+   "offset": 17,
+   "lineBreaks": 0,
+   "line": 2,
+   "col": 8
   }
  },
  {
@@ -26,19 +47,19 @@
    "type": "identifier",
    "value": "main",
    "text": "main",
-   "offset": 9,
+   "offset": 20,
    "lineBreaks": 0,
-   "line": 2,
+   "line": 3,
    "col": 1
   },
   "params": [
    {
     "type": "identifier",
-    "value": "num",
-    "text": "num",
-    "offset": 17,
+    "value": "num1",
+    "text": "num1",
+    "offset": 28,
     "lineBreaks": 0,
-    "line": 2,
+    "line": 3,
     "col": 9
    }
   ],
@@ -49,19 +70,19 @@
      "type": "identifier",
      "value": "print",
      "text": "print",
-     "offset": 30,
+     "offset": 42,
      "lineBreaks": 0,
-     "line": 3,
+     "line": 4,
      "col": 3
     },
     "arguments": [
      {
       "type": "identifier",
-      "value": "num",
-      "text": "num",
-      "offset": 36,
+      "value": "num1",
+      "text": "num1",
+      "offset": 48,
       "lineBreaks": 0,
-      "line": 3,
+      "line": 4,
       "col": 9
      }
     ]
@@ -74,19 +95,19 @@
    "type": "identifier",
    "value": "second",
    "text": "second",
-   "offset": 47,
+   "offset": 60,
    "lineBreaks": 0,
-   "line": 6,
+   "line": 7,
    "col": 1
   },
   "params": [
    {
     "type": "identifier",
-    "value": "num",
-    "text": "num",
-    "offset": 55,
+    "value": "num1",
+    "text": "num1",
+    "offset": 68,
     "lineBreaks": 0,
-    "line": 6,
+    "line": 7,
     "col": 9
    }
   ],
@@ -97,19 +118,19 @@
      "type": "identifier",
      "value": "print",
      "text": "print",
-     "offset": 68,
+     "offset": 82,
      "lineBreaks": 0,
-     "line": 7,
+     "line": 8,
      "col": 3
     },
     "arguments": [
      {
       "type": "identifier",
-      "value": "num",
-      "text": "num",
-      "offset": 74,
+      "value": "num1",
+      "text": "num1",
+      "offset": 88,
       "lineBreaks": 0,
-      "line": 7,
+      "line": 8,
       "col": 9
      }
     ]
@@ -122,19 +143,19 @@
    "type": "identifier",
    "value": "third",
    "text": "third",
-   "offset": 85,
+   "offset": 100,
    "lineBreaks": 0,
-   "line": 10,
+   "line": 11,
    "col": 1
   },
   "params": [
    {
     "type": "identifier",
-    "value": "num",
-    "text": "num",
-    "offset": 95,
+    "value": "num1",
+    "text": "num1",
+    "offset": 110,
     "lineBreaks": 0,
-    "line": 10,
+    "line": 11,
     "col": 11
    }
   ],
@@ -145,19 +166,19 @@
      "type": "identifier",
      "value": "print",
      "text": "print",
-     "offset": 109,
+     "offset": 125,
      "lineBreaks": 0,
-     "line": 11,
+     "line": 12,
      "col": 3
     },
     "arguments": [
      {
       "type": "identifier",
-      "value": "num",
-      "text": "num",
-      "offset": 115,
+      "value": "num1",
+      "text": "num1",
+      "offset": 131,
       "lineBreaks": 0,
-      "line": 11,
+      "line": 12,
       "col": 9
      }
     ]
@@ -170,9 +191,9 @@
    "type": "identifier",
    "value": "fourth",
    "text": "fourth",
-   "offset": 126,
+   "offset": 143,
    "lineBreaks": 0,
-   "line": 14,
+   "line": 15,
    "col": 1
   },
   "params": [],
@@ -181,9 +202,9 @@
     "type": "number",
     "value": "5",
     "text": "5",
-    "offset": 141,
+    "offset": 158,
     "lineBreaks": 0,
-    "line": 14,
+    "line": 15,
     "col": 16
    }
   ]
@@ -194,9 +215,9 @@
    "type": "identifier",
    "value": "fifth",
    "text": "fifth",
-   "offset": 146,
+   "offset": 163,
    "lineBreaks": 0,
-   "line": 16,
+   "line": 17,
    "col": 1
   },
   "params": [],
@@ -205,9 +226,9 @@
     "type": "number",
     "value": "5",
     "text": "5",
-    "offset": 159,
+    "offset": 176,
     "lineBreaks": 0,
-    "line": 16,
+    "line": 17,
     "col": 14
    }
   ]
@@ -218,9 +239,9 @@
    "type": "identifier",
    "value": "six",
    "text": "six",
-   "offset": 164,
+   "offset": 181,
    "lineBreaks": 0,
-   "line": 18,
+   "line": 19,
    "col": 1
   },
   "params": [],
@@ -229,10 +250,90 @@
     "type": "number",
     "value": "5",
     "text": "5",
-    "offset": 173,
+    "offset": 190,
     "lineBreaks": 0,
-    "line": 18,
+    "line": 19,
     "col": 10
+   }
+  ]
+ },
+ {
+  "type": "lambda",
+  "lambda_name": {
+   "type": "identifier",
+   "value": "seven",
+   "text": "seven",
+   "offset": 195,
+   "lineBreaks": 0,
+   "line": 21,
+   "col": 1
+  },
+  "params": [
+   {
+    "type": "identifier",
+    "value": "num1",
+    "text": "num1",
+    "offset": 204,
+    "lineBreaks": 0,
+    "line": 21,
+    "col": 10
+   },
+   {
+    "type": "identifier",
+    "value": "num2",
+    "text": "num2",
+    "offset": 209,
+    "lineBreaks": 0,
+    "line": 21,
+    "col": 15
+   }
+  ],
+  "body": [
+   {
+    "type": "function_call",
+    "function_name": {
+     "type": "identifier",
+     "value": "print",
+     "text": "print",
+     "offset": 223,
+     "lineBreaks": 0,
+     "line": 22,
+     "col": 3
+    },
+    "arguments": [
+     {
+      "type": "identifier",
+      "value": "num1",
+      "text": "num1",
+      "offset": 229,
+      "lineBreaks": 0,
+      "line": 22,
+      "col": 9
+     }
+    ]
+   },
+   {
+    "type": "function_call",
+    "function_name": {
+     "type": "identifier",
+     "value": "print",
+     "text": "print",
+     "offset": 238,
+     "lineBreaks": 0,
+     "line": 23,
+     "col": 3
+    },
+    "arguments": [
+     {
+      "type": "identifier",
+      "value": "num2",
+      "text": "num2",
+      "offset": 244,
+      "lineBreaks": 0,
+      "line": 23,
+      "col": 9
+     }
+    ]
    }
   ]
  }

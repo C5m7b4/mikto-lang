@@ -64,6 +64,20 @@ function generateLine(node) {
         })
         .join(', ');
       return `const ${arrayName} = [${arrayContents}];`;
+    case 'lambda':
+      const lambdaName = node.lambda_name.value;
+      const params = node.params.map(generateLine).join(', ');
+      const lambdaBody = node.body
+        .map((arg, i) => {
+          const lambdaCode = generateLine(arg);
+          if (i === node.body.length - 1) {
+            return `\treturn ${lambdaCode};`;
+          } else {
+            return `\t${lambdaCode};`;
+          }
+        })
+        .join(';\n');
+      return `const ${lambdaName} = (${params}) => {\n${lambdaBody}\n};`;
     default:
       console.log(`unknown node type detected: ${node.type} $`);
   }
