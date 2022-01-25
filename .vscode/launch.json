@@ -20,6 +20,13 @@
       "name":"parse",
       "program":"${workspaceFolder}\\parse.js",
       "args":["ex1"]
+    },
+    {
+      "type":"pwa-node",
+      "request":"launch",
+      "name":"generate",
+      "program":"${workspaceFolder}\\generate.js",
+      "args":["functions"]
     }
   ]
 }
