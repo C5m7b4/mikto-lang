@@ -22,7 +22,7 @@ function generateIf(node, generateLine, indent) {
         ifBody
       )}\n} else if ${elseIfBody} \nelse {\n${indent(elseBody)}\n}`;
     } else {
-      return `if (${param1} ${operator} ${param2}) {\n${indent(ifBody)}\n};`;
+      return `if (${param1} ${operator} ${param2}) {\n${indent(ifBody)}\n}`;
     }
   } else {
     if (elseBody) {
@@ -34,7 +34,7 @@ function generateIf(node, generateLine, indent) {
         ifBody
       )}\n} else if ${elseIfBody} else {\n${indent(elseBody)}\n}`;
     } else {
-      return `if (${param1}) {\n${indent(ifBody)}\n};`;
+      return `if (${param1}) {\n${indent(ifBody)}\n}`;
     }
   }
 }

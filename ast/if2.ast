@@ -1,0 +1,362 @@
+[
+ {
+  "type": "if_statement",
+  "params": {
+   "type": "if_arguments",
+   "param1": {
+    "type": "identifier",
+    "value": "num1",
+    "text": "num1",
+    "offset": 8,
+    "lineBreaks": 0,
+    "line": 3,
+    "col": 5
+   },
+   "operator": {
+    "type": "notequalto",
+    "value": "!=",
+    "text": "!=",
+    "offset": 13,
+    "lineBreaks": 0,
+    "line": 3,
+    "col": 10
+   },
+   "param2": {
+    "type": "identifier",
+    "value": "num2",
+    "text": "num2",
+    "offset": 16,
+    "lineBreaks": 0,
+    "line": 3,
+    "col": 13
+   }
+  },
+  "body": [
+   {
+    "type": "function_call",
+    "function_name": {
+     "type": "identifier",
+     "value": "print",
+     "text": "print",
+     "offset": 29,
+     "lineBreaks": 0,
+     "line": 4,
+     "col": 3
+    },
+    "arguments": [
+     {
+      "type": "identifier",
+      "value": "num2",
+      "text": "num2",
+      "offset": 35,
+      "lineBreaks": 0,
+      "line": 4,
+      "col": 9
+     }
+    ]
+   }
+  ],
+  "elseif": [],
+  "else": []
+ },
+ {
+  "type": "if_statement",
+  "params": {
+   "type": "if_arguments",
+   "param1": {
+    "type": "identifier",
+    "value": "num1",
+    "text": "num1",
+    "offset": 49,
+    "lineBreaks": 0,
+    "line": 6,
+    "col": 5
+   },
+   "operator": {
+    "type": "notequalto",
+    "value": "!==",
+    "text": "!==",
+    "offset": 54,
+    "lineBreaks": 0,
+    "line": 6,
+    "col": 10
+   },
+   "param2": {
+    "type": "identifier",
+    "value": "num2",
+    "text": "num2",
+    "offset": 58,
+    "lineBreaks": 0,
+    "line": 6,
+    "col": 14
+   }
+  },
+  "body": [
+   {
+    "type": "internal_function_call",
+    "function_name": {
+     "type": "identifier",
+     "value": "print",
+     "text": "print",
+     "offset": 71,
+     "lineBreaks": 0,
+     "line": 7,
+     "col": 3
+    },
+    "arguments": [
+     {
+      "type": "identifier",
+      "value": "num2",
+      "text": "num2",
+      "offset": 77,
+      "lineBreaks": 0,
+      "line": 7,
+      "col": 9
+     }
+    ]
+   }
+  ],
+  "elseif": [],
+  "else": []
+ },
+ {
+  "type": "if_statement",
+  "params": {
+   "type": "if_arguments",
+   "param1": {
+    "type": "identifier",
+    "value": "num1",
+    "text": "num1",
+    "offset": 93,
+    "lineBreaks": 0,
+    "line": 10,
+    "col": 5
+   },
+   "operator": {
+    "type": "equalto",
+    "value": "==",
+    "text": "==",
+    "offset": 98,
+    "lineBreaks": 0,
+    "line": 10,
+    "col": 10
+   },
+   "param2": {
+    "type": "identifier",
+    "value": "num2",
+    "text": "num2",
+    "offset": 101,
+    "lineBreaks": 0,
+    "line": 10,
+    "col": 13
+   }
+  },
+  "body": [
+   {
+    "type": "function_call",
+    "function_name": {
+     "type": "identifier",
+     "value": "print",
+     "text": "print",
+     "offset": 114,
+     "lineBreaks": 0,
+     "line": 11,
+     "col": 3
+    },
+    "arguments": [
+     {
+      "type": "identifier",
+      "value": "num2",
+      "text": "num2",
+      "offset": 120,
+      "lineBreaks": 0,
+      "line": 11,
+      "col": 9
+     }
+    ]
+   }
+  ],
+  "elseif": [],
+  "else": []
+ },
+ {
+  "type": "if_statement",
+  "params": {
+   "type": "if_arguments",
+   "param1": {
+    "type": "identifier",
+    "value": "num1",
+    "text": "num1",
+    "offset": 136,
+    "lineBreaks": 0,
+    "line": 14,
+    "col": 5
+   },
+   "operator": {
+    "type": "equalto",
+    "value": "===",
+    "text": "===",
+    "offset": 141,
+    "lineBreaks": 0,
+    "line": 14,
+    "col": 10
+   },
+   "param2": {
+    "type": "identifier",
+    "value": "num2",
+    "text": "num2",
+    "offset": 145,
+    "lineBreaks": 0,
+    "line": 14,
+    "col": 14
+   }
+  },
+  "body": [
+   {
+    "type": "internal_function_call",
+    "function_name": {
+     "type": "identifier",
+     "value": "print",
+     "text": "print",
+     "offset": 158,
+     "lineBreaks": 0,
+     "line": 15,
+     "col": 3
+    },
+    "arguments": [
+     {
+      "type": "identifier",
+      "value": "num2",
+      "text": "num2",
+      "offset": 164,
+      "lineBreaks": 0,
+      "line": 15,
+      "col": 9
+     }
+    ]
+   }
+  ],
+  "elseif": [],
+  "else": []
+ },
+ {
+  "type": "if_statement",
+  "params": {
+   "type": "if_arguments",
+   "param1": {
+    "type": "identifier",
+    "value": "isValid",
+    "text": "isValid",
+    "offset": 180,
+    "lineBreaks": 0,
+    "line": 18,
+    "col": 5
+   },
+   "operator": {
+    "type": "equalto",
+    "value": "===",
+    "text": "===",
+    "offset": 188,
+    "lineBreaks": 0,
+    "line": 18,
+    "col": 13
+   },
+   "param2": {
+    "type": "identifier",
+    "value": "true",
+    "text": "true",
+    "offset": 192,
+    "lineBreaks": 0,
+    "line": 18,
+    "col": 17
+   }
+  },
+  "body": [
+   {
+    "type": "function_call",
+    "function_name": {
+     "type": "identifier",
+     "value": "print",
+     "text": "print",
+     "offset": 205,
+     "lineBreaks": 0,
+     "line": 19,
+     "col": 3
+    },
+    "arguments": [
+     {
+      "type": "identifier",
+      "value": "isValid",
+      "text": "isValid",
+      "offset": 211,
+      "lineBreaks": 0,
+      "line": 19,
+      "col": 9
+     }
+    ]
+   }
+  ],
+  "elseif": [],
+  "else": []
+ },
+ {
+  "type": "if_statement",
+  "params": {
+   "type": "if_arguments",
+   "param1": {
+    "type": "identifier",
+    "value": "isValid",
+    "text": "isValid",
+    "offset": 230,
+    "lineBreaks": 0,
+    "line": 22,
+    "col": 5
+   },
+   "operator": {
+    "type": "equalto",
+    "value": "===",
+    "text": "===",
+    "offset": 238,
+    "lineBreaks": 0,
+    "line": 22,
+    "col": 13
+   },
+   "param2": {
+    "type": "identifier",
+    "value": "false",
+    "text": "false",
+    "offset": 242,
+    "lineBreaks": 0,
+    "line": 22,
+    "col": 17
+   }
+  },
+  "body": [
+   {
+    "type": "internal_function_call",
+    "function_name": {
+     "type": "identifier",
+     "value": "print",
+     "text": "print",
+     "offset": 256,
+     "lineBreaks": 0,
+     "line": 23,
+     "col": 3
+    },
+    "arguments": [
+     {
+      "type": "identifier",
+      "value": "isValid",
+      "text": "isValid",
+      "offset": 262,
+      "lineBreaks": 0,
+      "line": 23,
+      "col": 9
+     }
+    ]
+   }
+  ],
+  "elseif": [],
+  "else": []
+ }
+]
