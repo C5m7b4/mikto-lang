@@ -13,6 +13,17 @@ statements
         return [data[1], ...restParams]
       }
     %}
+  | internal_statements {% id %}
+
+internal_statements
+  -> _ml internal_statement (__lb_ internal_statement):* _ml
+    {%
+      (data) => {
+        const chunks = data[2];
+        const restParams = chunks.map(chunk => chunk[1])
+        return [data[1], ...restParams]
+      }
+    %}    
 
 
   
@@ -27,6 +38,9 @@ statement
   | if_Statment {% id %}
   | array {% id %}
   | each_statement {% id %}
+
+internal_statement
+  -> internal_function_call {% id %}  
 
 assignment
   -> %identifier _ %assign _ expression
@@ -61,6 +75,27 @@ function_call
         }
       }
     %}
+
+internal_function_call
+  -> %identifier _ %lparen _ml %rparen
+    {%
+      (data) => {
+        return {
+          type: 'internal_function_call',
+          function_name: data[0]
+        }
+      }
+    %} 
+  | %identifier _ %lparen _ml argument_list _ml %rparen
+    {%
+      (data) => {
+        return {
+          type: 'internal_function_call',
+          function_name: data[0],
+          arguments: data[4]
+        }
+      }
+    %}    
 
 argument_list
   -> expression 
@@ -207,7 +242,12 @@ each_statement
       }
     %}
 
-each_array -> array_expressions {% id %}
+each_array -> array_expressions 
+  {%
+    (data) => {
+      return data[0]
+    }
+  %}
 
 each_args
   -> expression _ %comma _ expression
