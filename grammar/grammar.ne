@@ -35,9 +35,10 @@ statement
   | %mlend {% id %}
   | function_call {% id %}
   | lambda {% id %}
-  | if_Statment {% id %}
+  | if_Statement {% id %}
   | array {% id %}
   | each_statement {% id %}
+  | math {% id %}
 
 internal_statement
   -> internal_function_call {% id %}  
@@ -48,6 +49,16 @@ assignment
       (data) => {
         return {
           type:'var_assign',
+          variable: data[0],
+          value: data[4]
+        }
+      }
+    %}
+  | %identifier _ %assign _ internal_function_call
+    {%
+      (data) => {
+        return {
+          type: 'var_assign',
           variable: data[0],
           value: data[4]
         }
@@ -147,8 +158,14 @@ lambda_body
         return data[2]
       }
     %}
+  | %lbrace __lb_ internal_statements __lb_ %rbrace
+    {%
+      (data) => {
+        return data[2]
+      }
+    %}
 
-if_Statment
+if_Statement
   -> "if" _ %colon _ if_arguments _ %fatarrow _ lambda_body (_ else_if):? (_ else):?
     {%
       (data) => {
@@ -261,17 +278,38 @@ each_args
       }
     %}
 
+math
+  -> expression _ math_operator _ expression
+    {%
+      (data) => {
+        return {
+          type: 'math',
+          exp1: data[0],
+          operator: data[2],
+          exp2: data[4]
+        }
+      }
+    %} 
+
 expression
   -> %string {% id %}
   | %number {% id %}
   | %identifier {% id %}
-  | function_call {% id %} 
+  | function_call {% id %}
+  | internal_function_call {% id %}
 
 operator
   -> %greaterthan {% id %}
   | %lessthan {% id %}
   | %equalto {% id %}
   | %notequalto {% id %}
+
+math_operator
+  -> %plus {% id %}
+  | %minus {% id %}
+  | %times {% id %}
+  | %divide {% id %}
+  | %mod {% id %}
 
 
 # multiline comment
