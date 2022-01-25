@@ -1,0 +1,196 @@
+[
+ {
+  "type": "array",
+  "name": {
+   "type": "identifier",
+   "value": "arr",
+   "text": "arr",
+   "offset": 0,
+   "lineBreaks": 0,
+   "line": 1,
+   "col": 1
+  },
+  "contents": [
+   {
+    "type": "number",
+    "value": "1",
+    "text": "1",
+    "offset": 6,
+    "lineBreaks": 0,
+    "line": 1,
+    "col": 7
+   },
+   {
+    "type": "number",
+    "value": "2",
+    "text": "2",
+    "offset": 8,
+    "lineBreaks": 0,
+    "line": 1,
+    "col": 9
+   },
+   {
+    "type": "number",
+    "value": "3",
+    "text": "3",
+    "offset": 10,
+    "lineBreaks": 0,
+    "line": 1,
+    "col": 11
+   },
+   {
+    "type": "number",
+    "value": "4",
+    "text": "4",
+    "offset": 12,
+    "lineBreaks": 0,
+    "line": 1,
+    "col": 13
+   },
+   {
+    "type": "number",
+    "value": "5",
+    "text": "5",
+    "offset": 14,
+    "lineBreaks": 0,
+    "line": 1,
+    "col": 15
+   },
+   {
+    "type": "number",
+    "value": "6",
+    "text": "6",
+    "offset": 16,
+    "lineBreaks": 0,
+    "line": 1,
+    "col": 17
+   },
+   {
+    "type": "number",
+    "value": "7",
+    "text": "7",
+    "offset": 18,
+    "lineBreaks": 0,
+    "line": 1,
+    "col": 19
+   }
+  ]
+ },
+ {
+  "type": "lambda",
+  "lambda_name": {
+   "type": "identifier",
+   "value": "addThree",
+   "text": "addThree",
+   "offset": 24,
+   "lineBreaks": 0,
+   "line": 3,
+   "col": 1
+  },
+  "params": [
+   {
+    "type": "identifier",
+    "value": "x",
+    "text": "x",
+    "offset": 36,
+    "lineBreaks": 0,
+    "line": 3,
+    "col": 13
+   }
+  ],
+  "body": [
+   {
+    "type": "function_call",
+    "function_name": {
+     "type": "identifier",
+     "value": "add",
+     "text": "add",
+     "offset": 47,
+     "lineBreaks": 0,
+     "line": 4,
+     "col": 3
+    },
+    "arguments": [
+     {
+      "type": "identifier",
+      "value": "x",
+      "text": "x",
+      "offset": 51,
+      "lineBreaks": 0,
+      "line": 4,
+      "col": 7
+     },
+     {
+      "type": "number",
+      "value": "3",
+      "text": "3",
+      "offset": 53,
+      "lineBreaks": 0,
+      "line": 4,
+      "col": 9
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "type": "each_statement",
+  "array": [
+   {
+    "type": "identifier",
+    "value": "arr",
+    "text": "arr",
+    "offset": 68,
+    "lineBreaks": 0,
+    "line": 7,
+    "col": 7
+   }
+  ],
+  "arguments": {
+   "type": "each_args",
+   "itemToManipulate": {
+    "type": "identifier",
+    "value": "item",
+    "text": "item",
+    "offset": 73,
+    "lineBreaks": 0,
+    "line": 7,
+    "col": 12
+   },
+   "operateFunction": {
+    "type": "identifier",
+    "value": "addThree",
+    "text": "addThree",
+    "offset": 79,
+    "lineBreaks": 0,
+    "line": 7,
+    "col": 18
+   }
+  },
+  "body": [
+   {
+    "type": "function_call",
+    "function_name": {
+     "type": "identifier",
+     "value": "addThree",
+     "text": "addThree",
+     "offset": 97,
+     "lineBreaks": 0,
+     "line": 8,
+     "col": 3
+    },
+    "arguments": [
+     {
+      "type": "identifier",
+      "value": "item",
+      "text": "item",
+      "offset": 106,
+      "lineBreaks": 0,
+      "line": 8,
+      "col": 12
+     }
+    ]
+   }
+  ]
+ }
+]

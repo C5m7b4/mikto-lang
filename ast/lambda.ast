@@ -1,0 +1,239 @@
+[
+ {
+  "type": "var-assign",
+  "variable": {
+   "type": "identifier",
+   "value": "num",
+   "text": "num",
+   "offset": 0,
+   "lineBreaks": 0,
+   "line": 1,
+   "col": 1
+  },
+  "value": {
+   "type": "number",
+   "value": "5",
+   "text": "5",
+   "offset": 6,
+   "lineBreaks": 0,
+   "line": 1,
+   "col": 7
+  }
+ },
+ {
+  "type": "lambda",
+  "lambda_name": {
+   "type": "identifier",
+   "value": "main",
+   "text": "main",
+   "offset": 9,
+   "lineBreaks": 0,
+   "line": 2,
+   "col": 1
+  },
+  "params": [
+   {
+    "type": "identifier",
+    "value": "num",
+    "text": "num",
+    "offset": 17,
+    "lineBreaks": 0,
+    "line": 2,
+    "col": 9
+   }
+  ],
+  "body": [
+   {
+    "type": "function_call",
+    "function_name": {
+     "type": "identifier",
+     "value": "print",
+     "text": "print",
+     "offset": 30,
+     "lineBreaks": 0,
+     "line": 3,
+     "col": 3
+    },
+    "arguments": [
+     {
+      "type": "identifier",
+      "value": "num",
+      "text": "num",
+      "offset": 36,
+      "lineBreaks": 0,
+      "line": 3,
+      "col": 9
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "type": "lambda",
+  "lambda_name": {
+   "type": "identifier",
+   "value": "second",
+   "text": "second",
+   "offset": 47,
+   "lineBreaks": 0,
+   "line": 6,
+   "col": 1
+  },
+  "params": [
+   {
+    "type": "identifier",
+    "value": "num",
+    "text": "num",
+    "offset": 55,
+    "lineBreaks": 0,
+    "line": 6,
+    "col": 9
+   }
+  ],
+  "body": [
+   {
+    "type": "function_call",
+    "function_name": {
+     "type": "identifier",
+     "value": "print",
+     "text": "print",
+     "offset": 68,
+     "lineBreaks": 0,
+     "line": 7,
+     "col": 3
+    },
+    "arguments": [
+     {
+      "type": "identifier",
+      "value": "num",
+      "text": "num",
+      "offset": 74,
+      "lineBreaks": 0,
+      "line": 7,
+      "col": 9
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "type": "lambda",
+  "lambda_name": {
+   "type": "identifier",
+   "value": "third",
+   "text": "third",
+   "offset": 85,
+   "lineBreaks": 0,
+   "line": 10,
+   "col": 1
+  },
+  "params": [
+   {
+    "type": "identifier",
+    "value": "num",
+    "text": "num",
+    "offset": 95,
+    "lineBreaks": 0,
+    "line": 10,
+    "col": 11
+   }
+  ],
+  "body": [
+   {
+    "type": "function_call",
+    "function_name": {
+     "type": "identifier",
+     "value": "print",
+     "text": "print",
+     "offset": 109,
+     "lineBreaks": 0,
+     "line": 11,
+     "col": 3
+    },
+    "arguments": [
+     {
+      "type": "identifier",
+      "value": "num",
+      "text": "num",
+      "offset": 115,
+      "lineBreaks": 0,
+      "line": 11,
+      "col": 9
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "type": "lambda",
+  "lambda_name": {
+   "type": "identifier",
+   "value": "fourth",
+   "text": "fourth",
+   "offset": 126,
+   "lineBreaks": 0,
+   "line": 14,
+   "col": 1
+  },
+  "params": [],
+  "body": [
+   {
+    "type": "number",
+    "value": "5",
+    "text": "5",
+    "offset": 141,
+    "lineBreaks": 0,
+    "line": 14,
+    "col": 16
+   }
+  ]
+ },
+ {
+  "type": "lambda",
+  "lambda_name": {
+   "type": "identifier",
+   "value": "fifth",
+   "text": "fifth",
+   "offset": 146,
+   "lineBreaks": 0,
+   "line": 16,
+   "col": 1
+  },
+  "params": [],
+  "body": [
+   {
+    "type": "number",
+    "value": "5",
+    "text": "5",
+    "offset": 159,
+    "lineBreaks": 0,
+    "line": 16,
+    "col": 14
+   }
+  ]
+ },
+ {
+  "type": "lambda",
+  "lambda_name": {
+   "type": "identifier",
+   "value": "six",
+   "text": "six",
+   "offset": 164,
+   "lineBreaks": 0,
+   "line": 18,
+   "col": 1
+  },
+  "params": [],
+  "body": [
+   {
+    "type": "number",
+    "value": "5",
+    "text": "5",
+    "offset": 173,
+    "lineBreaks": 0,
+    "line": 18,
+    "col": 10
+   }
+  ]
+ }
+]

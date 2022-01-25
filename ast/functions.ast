@@ -1,0 +1,148 @@
+[
+ {
+  "type": "var-assign",
+  "variable": {
+   "type": "identifier",
+   "value": "num",
+   "text": "num",
+   "offset": 0,
+   "lineBreaks": 0,
+   "line": 1,
+   "col": 1
+  },
+  "value": {
+   "type": "number",
+   "value": "5",
+   "text": "5",
+   "offset": 6,
+   "lineBreaks": 0,
+   "line": 1,
+   "col": 7
+  }
+ },
+ {
+  "type": "function_call",
+  "function_name": {
+   "type": "identifier",
+   "value": "print",
+   "text": "print",
+   "offset": 9,
+   "lineBreaks": 0,
+   "line": 2,
+   "col": 1
+  }
+ },
+ {
+  "type": "function_call",
+  "function_name": {
+   "type": "identifier",
+   "value": "print",
+   "text": "print",
+   "offset": 19,
+   "lineBreaks": 0,
+   "line": 3,
+   "col": 1
+  },
+  "arguments": [
+   {
+    "type": "identifier",
+    "value": "num",
+    "text": "num",
+    "offset": 25,
+    "lineBreaks": 0,
+    "line": 3,
+    "col": 7
+   }
+  ]
+ },
+ {
+  "type": "function_call",
+  "function_name": {
+   "type": "identifier",
+   "value": "print",
+   "text": "print",
+   "offset": 31,
+   "lineBreaks": 0,
+   "line": 4,
+   "col": 1
+  }
+ },
+ {
+  "type": "function_call",
+  "function_name": {
+   "type": "identifier",
+   "value": "print",
+   "text": "print",
+   "offset": 41,
+   "lineBreaks": 0,
+   "line": 5,
+   "col": 1
+  },
+  "arguments": [
+   {
+    "type": "identifier",
+    "value": "num",
+    "text": "num",
+    "offset": 48,
+    "lineBreaks": 0,
+    "line": 5,
+    "col": 8
+   }
+  ]
+ },
+ {
+  "type": "function_call",
+  "function_name": {
+   "type": "identifier",
+   "value": "print",
+   "text": "print",
+   "offset": 55,
+   "lineBreaks": 0,
+   "line": 6,
+   "col": 1
+  },
+  "arguments": [
+   {
+    "type": "identifier",
+    "value": "num",
+    "text": "num",
+    "offset": 63,
+    "lineBreaks": 0,
+    "line": 6,
+    "col": 9
+   }
+  ]
+ },
+ {
+  "type": "function_call",
+  "function_name": {
+   "type": "identifier",
+   "value": "print",
+   "text": "print",
+   "offset": 69,
+   "lineBreaks": 0,
+   "line": 7,
+   "col": 1
+  },
+  "arguments": [
+   {
+    "type": "string",
+    "value": "\"helo\"",
+    "text": "\"helo\"",
+    "offset": 75,
+    "lineBreaks": 0,
+    "line": 7,
+    "col": 7
+   },
+   {
+    "type": "string",
+    "value": "\"world\"",
+    "text": "\"world\"",
+    "offset": 82,
+    "lineBreaks": 0,
+    "line": 7,
+    "col": 14
+   }
+  ]
+ }
+]

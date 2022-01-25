@@ -1,0 +1,224 @@
+[
+ {
+  "type": "array",
+  "name": {
+   "type": "identifier",
+   "value": "names",
+   "text": "names",
+   "offset": 0,
+   "lineBreaks": 0,
+   "line": 1,
+   "col": 1
+  },
+  "contents": [
+   {
+    "type": "string",
+    "value": "\"mike\"",
+    "text": "\"mike\"",
+    "offset": 9,
+    "lineBreaks": 0,
+    "line": 1,
+    "col": 10
+   },
+   {
+    "type": "string",
+    "value": "'tommy'",
+    "text": "'tommy'",
+    "offset": 17,
+    "lineBreaks": 0,
+    "line": 1,
+    "col": 18
+   }
+  ]
+ },
+ {
+  "type": "array",
+  "name": {
+   "type": "identifier",
+   "value": "names1",
+   "text": "names1",
+   "offset": 30,
+   "lineBreaks": 0,
+   "line": 3,
+   "col": 1
+  },
+  "contents": [
+   {
+    "type": "string",
+    "value": "'mike', 'tommy'",
+    "text": "'mike', 'tommy'",
+    "offset": 40,
+    "lineBreaks": 0,
+    "line": 3,
+    "col": 11
+   }
+  ]
+ },
+ {
+  "type": "array",
+  "name": {
+   "type": "identifier",
+   "value": "names3",
+   "text": "names3",
+   "offset": 60,
+   "lineBreaks": 0,
+   "line": 5,
+   "col": 1
+  },
+  "contents": [
+   {
+    "type": "string",
+    "value": "'mike' 'tommy'",
+    "text": "'mike' 'tommy'",
+    "offset": 70,
+    "lineBreaks": 0,
+    "line": 5,
+    "col": 11
+   }
+  ]
+ },
+ {
+  "type": "array",
+  "name": {
+   "type": "identifier",
+   "value": "names4",
+   "text": "names4",
+   "offset": 89,
+   "lineBreaks": 0,
+   "line": 7,
+   "col": 1
+  },
+  "contents": [
+   {
+    "type": "string",
+    "value": "'mike''tommy'",
+    "text": "'mike''tommy'",
+    "offset": 97,
+    "lineBreaks": 0,
+    "line": 7,
+    "col": 9
+   }
+  ]
+ },
+ {
+  "type": "array",
+  "name": {
+   "type": "identifier",
+   "value": "names5",
+   "text": "names5",
+   "offset": 115,
+   "lineBreaks": 0,
+   "line": 9,
+   "col": 1
+  },
+  "contents": [
+   {
+    "type": "string",
+    "value": "'mike'",
+    "text": "'mike'",
+    "offset": 124,
+    "lineBreaks": 0,
+    "line": 9,
+    "col": 10
+   },
+   {
+    "type": "number",
+    "value": "0",
+    "text": "0",
+    "offset": 131,
+    "lineBreaks": 0,
+    "line": 9,
+    "col": 17
+   }
+  ]
+ },
+ {
+  "type": "var-assign",
+  "variable": {
+   "type": "identifier",
+   "value": "test",
+   "text": "test",
+   "offset": 137,
+   "lineBreaks": 0,
+   "line": 11,
+   "col": 1
+  },
+  "value": {
+   "type": "string",
+   "value": "'running'",
+   "text": "'running'",
+   "offset": 144,
+   "lineBreaks": 0,
+   "line": 11,
+   "col": 8
+  }
+ },
+ {
+  "type": "array",
+  "name": {
+   "type": "identifier",
+   "value": "names6",
+   "text": "names6",
+   "offset": 157,
+   "lineBreaks": 0,
+   "line": 13,
+   "col": 1
+  },
+  "contents": [
+   {
+    "type": "string",
+    "value": "'mike is a bitch'",
+    "text": "'mike is a bitch'",
+    "offset": 166,
+    "lineBreaks": 0,
+    "line": 13,
+    "col": 10
+   },
+   {
+    "type": "identifier",
+    "value": "test",
+    "text": "test",
+    "offset": 185,
+    "lineBreaks": 0,
+    "line": 13,
+    "col": 29
+   },
+   {
+    "type": "number",
+    "value": "0",
+    "text": "0",
+    "offset": 190,
+    "lineBreaks": 0,
+    "line": 13,
+    "col": 34
+   },
+   {
+    "type": "identifier",
+    "value": "r",
+    "text": "r",
+    "offset": 192,
+    "lineBreaks": 0,
+    "line": 13,
+    "col": 36
+   },
+   {
+    "type": "number",
+    "value": "8",
+    "text": "8",
+    "offset": 194,
+    "lineBreaks": 0,
+    "line": 13,
+    "col": 38
+   },
+   {
+    "type": "identifier",
+    "value": "z",
+    "text": "z",
+    "offset": 195,
+    "lineBreaks": 0,
+    "line": 13,
+    "col": 39
+   }
+  ]
+ }
+]

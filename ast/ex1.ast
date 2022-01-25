@@ -1,0 +1,74 @@
+[
+ {
+  "type": "var-assign",
+  "variable": {
+   "type": "identifier",
+   "value": "job",
+   "text": "job",
+   "offset": 2,
+   "lineBreaks": 0,
+   "line": 2,
+   "col": 1
+  },
+  "value": {
+   "type": "string",
+   "value": "\"programmer\"",
+   "text": "\"programmer\"",
+   "offset": 8,
+   "lineBreaks": 0,
+   "line": 2,
+   "col": 7
+  }
+ },
+ {
+  "type": "var-assign",
+  "variable": {
+   "type": "identifier",
+   "value": "name",
+   "text": "name",
+   "offset": 22,
+   "lineBreaks": 0,
+   "line": 3,
+   "col": 1
+  },
+  "value": {
+   "type": "string",
+   "value": "\"mike\"",
+   "text": "\"mike\"",
+   "offset": 29,
+   "lineBreaks": 0,
+   "line": 3,
+   "col": 8
+  }
+ },
+ {
+  "type": "var-assign",
+  "variable": {
+   "type": "identifier",
+   "value": "path",
+   "text": "path",
+   "offset": 37,
+   "lineBreaks": 0,
+   "line": 4,
+   "col": 1
+  },
+  "value": {
+   "type": "string",
+   "value": "'single'",
+   "text": "'single'",
+   "offset": 44,
+   "lineBreaks": 0,
+   "line": 4,
+   "col": 8
+  }
+ },
+ {
+  "type": "comment",
+  "value": "// this is a comment and we are going to put an extra line at the bottom for good measure",
+  "text": "// this is a comment and we are going to put an extra line at the bottom for good measure",
+  "offset": 56,
+  "lineBreaks": 0,
+  "line": 6,
+  "col": 1
+ }
+]
