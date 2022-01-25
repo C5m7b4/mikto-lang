@@ -33,7 +33,7 @@ assignment
     {%
       (data) => {
         return {
-          type:'var-assign',
+          type:'var_assign',
           variable: data[0],
           value: data[4]
         }
