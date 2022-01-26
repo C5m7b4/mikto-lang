@@ -40,6 +40,32 @@
       "request":"launch",
       "name":"test each.js",
       "program":"${workspaceFolder}\\dist\\each.js",
+    },
+    {
+      "type":"pwa-node",
+      "request":"launch",
+      "name":"generate each",
+      "program":"${workspaceFolder}\\generate.js",
+      "args":["each"]
+    },
+    {
+      "type":"pwa-node",
+      "request":"launch",
+      "name":"generate map",
+      "program":"${workspaceFolder}\\generate.js",
+      "args":["map"]
+    },
+    {
+      "type":"pwa-node",
+      "request":"launch",
+      "name":"test map",
+      "program":"${workspaceFolder}\\dist\\map.js"
+    },
+    {
+      "type":"pwa-node",
+      "request": "launch",
+      "name":"test test all",
+      "program":"${workspaceFolder}\\test_all.js"
     }
   ]
 }

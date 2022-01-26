@@ -39,10 +39,15 @@ names1: ["mike" "tommy"]
 // each statements
 arr: [1,2,3,4,5,6,7]
 
-addThree = (x) => {
-  add(x 3)
+add = (x y) => {
+  x + y
 }
 
-each: arr (item, addThree) => {
+addThree = (x) => {
+  result = add(x 3)
+  print(result)
+}
+
+each: arr (item) => {
   addThree(item)
 }

@@ -8,6 +8,6 @@ const addThree = (x) => {
 	let result = add(x, 3);
 	return console.log(result);
 }
-arr.forEach((item, undefined) => {
-	addThree(item)
+arr.forEach((item) => {
+	return addThree(item)
 })

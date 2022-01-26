@@ -16,24 +16,7 @@ if: num1 > num2 => {
   print(num2)
 }
 
-if: isValid => {
-  print(isValid)
-}
 
-if: num1 > num2 => {
-  print(num1)
-} 
 
-if : num1 > num2 => {
-  print(num1)
-}
-
-if:num1>num2=>{
-  print(num1)
-}
-
-if:num1<num2 => {
-  print(num2)
-}
 
 

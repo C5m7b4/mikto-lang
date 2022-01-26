@@ -12,3 +12,4 @@ addThree = (x) => {
 each: arr (item) => {
   addThree(item)
 }
+

@@ -4,4 +4,4 @@ console.log(num);
 console.log();
 console.log(num);
 console.log(num);
-console.log("helo","world");
+console.log("helo", "world");

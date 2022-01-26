@@ -102,10 +102,35 @@ function generateLine(node) {
     case 'each_statement':
       const eachArray = node.array[0].value;
       const manipulator = node.arguments.itemToManipulate.value;
-      const operateFunction = node.arguments.operateFunction.value;
-      const eachBody = node.body.map(generateLine).join(';\n');
-      return `${eachArray}.forEach((${manipulator}, ${operateFunction}) => {\n${indent(
+      //const operateFunction = node.arguments.operateFunction.value;
+      const eachBody = node.body
+        .map((arg, i) => {
+          const eachCode = generateLine(arg);
+          if (i === node.body.length - 1) {
+            return `return ${eachCode}`;
+          } else {
+            return eachCode;
+          }
+        })
+        .join(';\n');
+      return `${eachArray}.forEach((${manipulator}) => {\n${indent(
         eachBody
+      )}\n})`;
+    case 'map_statement':
+      const mapArray = node.array[0].value;
+      const mapManipulator = node.arguments.itemToManipulate.value;
+      const mapBody = node.body
+        .map((arg, i) => {
+          const mapCode = generateLine(arg);
+          if (i === node.body.length - 1) {
+            return `return ${mapCode};`;
+          } else {
+            return `${mapCode};`;
+          }
+        })
+        .join(';\n');
+      return `${mapArray}.map((${mapManipulator}, i) => {\n${indent(
+        mapBody
       )}\n})`;
     case 'math':
       const mathExp1 = node.exp1.value;
