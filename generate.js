@@ -1,5 +1,8 @@
 const fs = require('fs').promises;
 const generateIf = require('./generators/if');
+const generateVarAssign = require('./generators/var_assign');
+const generateForEach = require('./generators/for_each');
+const generateArrayConversion = require('./generators/arrar_conversion');
 
 let insideFunction = false;
 
@@ -31,28 +34,7 @@ function generateLine(node) {
     case 'comment':
       return node.value;
     case 'var_assign':
-      const variable = node.variable.value;
-      const value = generateLine(node.value);
-      const assignmentOperator = node.assignmentOperator.value;
-      let optional = '';
-      if (node.optional) {
-        optional = node.optional
-          .map((arg, i) => {
-            return generateLine(arg);
-          })
-          .join('');
-        if (assignmentOperator !== '=') {
-          return `${variable} ${assignmentOperator} ${value}${optional}`;
-        } else {
-          return `let ${variable} ${assignmentOperator} ${value}${optional}`;
-        }
-      } else {
-        if (assignmentOperator !== '=') {
-          return `${variable} ${assignmentOperator} ${value};`;
-        } else {
-          return `let ${variable} ${assignmentOperator} ${value};`;
-        }
-      }
+      return generateVarAssign(node, generateLine, indent);
     case 'var_assign_standalone':
       const svariable = node.variable.value;
       const svalue = generateLine(node.value);
@@ -149,22 +131,7 @@ function generateLine(node) {
     case 'if_statement':
       return generateIf(node, generateLine, indent);
     case 'each_statement':
-      const eachArray = node.array[0].value;
-      const manipulator = node.arguments.itemToManipulate.value;
-      //const operateFunction = node.arguments.operateFunction.value;
-      const eachBody = node.body
-        .map((arg, i) => {
-          const eachCode = generateLine(arg);
-          if (i === node.body.length - 1) {
-            return `return ${eachCode}`;
-          } else {
-            return eachCode;
-          }
-        })
-        .join(';\n');
-      return `${eachArray}.forEach((${manipulator}) => {\n${indent(
-        eachBody
-      )}\n})`;
+      return generateForEach(node, generateLine, indent, insideFunction);
     case 'map_statement':
       const mapArray = node.array[0].value;
       const mapManipulator = node.arguments.itemToManipulate.value;
@@ -221,6 +188,8 @@ function generateLine(node) {
       return `Object.assign([], ${arr});`;
     case 'length':
       return node.value;
+    case 'array_conversion':
+      return generateArrayConversion(node, generateLine, indent);
     default:
       console.log(`unknown node type detected: ${node.type}`);
   }
