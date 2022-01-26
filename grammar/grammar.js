@@ -43,6 +43,7 @@ var grammar = {
     {"name": "statement", "symbols": [(lexer.has("identifier") ? {type: "identifier"} : identifier)], "postprocess": id},
     {"name": "statement", "symbols": ["reduce_statement"], "postprocess": id},
     {"name": "statement", "symbols": ["math_expression"], "postprocess": id},
+    {"name": "statement", "symbols": ["array_conversion"], "postprocess": id},
     {"name": "internal_statement", "symbols": ["internal_function_call"], "postprocess": id},
     {"name": "assignment", "symbols": [(lexer.has("identifier") ? {type: "identifier"} : identifier), "_", "assignment_operator", "_", "expression"], "postprocess": 
         (data) => {
@@ -331,7 +332,19 @@ var grammar = {
         (data) => {
           return {
             type: 'array_conversion',
+            method: 'basic',
             array: data[5]
+          }
+        }
+            },
+    {"name": "array_conversion", "symbols": [{"literal":"Array"}, (lexer.has("period") ? {type: "period"} : period), {"literal":"from"}, (lexer.has("lparen") ? {type: "lparen"} : lparen), {"literal":"new"}, "__", {"literal":"Set"}, (lexer.has("lparen") ? {type: "lparen"} : lparen), (lexer.has("identifier") ? {type: "identifier"} : identifier), "_", "math_operator", "_", (lexer.has("identifier") ? {type: "identifier"} : identifier), (lexer.has("rparen") ? {type: "rparen"} : rparen), (lexer.has("rparen") ? {type: "rparen"} : rparen), (lexer.has("period") ? {type: "period"} : period), {"literal":"sort"}, (lexer.has("lparen") ? {type: "lparen"} : lparen), (lexer.has("rparen") ? {type: "rparen"} : rparen), (lexer.has("period") ? {type: "period"} : period), {"literal":"join"}, (lexer.has("lparen") ? {type: "lparen"} : lparen), "doubleSingleQuote", (lexer.has("rparen") ? {type: "rparen"} : rparen)], "postprocess":   
+        (data) => {
+          return {
+            type: 'array_conversion',
+            method: 'set',
+            arg1: data[8],
+            math_operator: data[10],
+            arg2: data[12]
           }
         }
             },
@@ -391,6 +404,8 @@ var grammar = {
     {"name": "math_operator", "symbols": [(lexer.has("mod") ? {type: "mod"} : mod)], "postprocess": id},
     {"name": "_cw", "symbols": ["_"]},
     {"name": "_cw", "symbols": [(lexer.has("comma") ? {type: "comma"} : comma)]},
+    {"name": "singleQuote", "symbols": [{"literal":"'"}]},
+    {"name": "doubleSingleQuote", "symbols": [{"literal":"''"}]},
     {"name": "mlcomment$ebnf$1", "symbols": []},
     {"name": "mlcomment$ebnf$1", "symbols": ["mlcomment$ebnf$1", /[^*]/], "postprocess": function arrpush(d) {return d[0].concat([d[1]]);}},
     {"name": "mlcomment$ebnf$2", "symbols": []},

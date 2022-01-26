@@ -44,6 +44,7 @@ statement
   | %identifier {% id %}
   | reduce_statement {% id %}
   | math_expression {% id %}
+  | array_conversion {% id %}
 
 internal_statement
   -> internal_function_call {% id %}  
@@ -382,7 +383,20 @@ array_conversion
       (data) => {
         return {
           type: 'array_conversion',
+          method: 'basic',
           array: data[5]
+        }
+      }
+    %}
+  | "Array" %period "from" %lparen "new" __ "Set" %lparen %identifier _ math_operator _  %identifier %rparen %rparen %period "sort" %lparen %rparen %period "join" %lparen doubleSingleQuote %rparen
+    {%  
+      (data) => {
+        return {
+          type: 'array_conversion',
+          method: 'set',
+          arg1: data[8],
+          math_operator: data[10],
+          arg2: data[12]
         }
       }
     %}
@@ -460,6 +474,9 @@ math_operator
 
 # comma or whitespace
 _cw => _ | %comma
+
+singleQuote => "'"
+doubleSingleQuote => "''"
 
 
 # multiline comment
