@@ -41,22 +41,54 @@ var grammar = {
     {"name": "statement", "symbols": ["math"], "postprocess": id},
     {"name": "statement", "symbols": ["map_statement"], "postprocess": id},
     {"name": "statement", "symbols": [(lexer.has("identifier") ? {type: "identifier"} : identifier)], "postprocess": id},
+    {"name": "statement", "symbols": ["reduce_statement"], "postprocess": id},
+    {"name": "statement", "symbols": ["math_expression"], "postprocess": id},
     {"name": "internal_statement", "symbols": ["internal_function_call"], "postprocess": id},
-    {"name": "assignment", "symbols": [(lexer.has("identifier") ? {type: "identifier"} : identifier), "_", (lexer.has("assign") ? {type: "assign"} : assign), "_", "expression"], "postprocess": 
+    {"name": "assignment", "symbols": [(lexer.has("identifier") ? {type: "identifier"} : identifier), "_", "assignment_operator", "_", "expression"], "postprocess": 
         (data) => {
           return {
             type:'var_assign',
             variable: data[0],
-            value: data[4]
+            value: data[4],
+            assignmentOperator: data[2]
           }
         }
             },
-    {"name": "assignment", "symbols": [(lexer.has("identifier") ? {type: "identifier"} : identifier), "_", (lexer.has("assign") ? {type: "assign"} : assign), "_", "internal_function_call"], "postprocess": 
+    {"name": "assignment", "symbols": [(lexer.has("identifier") ? {type: "identifier"} : identifier), "_", "assignment_operator", "_", "internal_function_call"], "postprocess": 
         (data) => {
           return {
             type: 'var_assign',
             variable: data[0],
-            value: data[4]
+            value: data[4],
+            assignmentOperator: data[2]
+          }
+        }
+            },
+    {"name": "assignment$ebnf$1", "symbols": []},
+    {"name": "assignment$ebnf$1$subexpression$1", "symbols": ["string_property"]},
+    {"name": "assignment$ebnf$1", "symbols": ["assignment$ebnf$1", "assignment$ebnf$1$subexpression$1"], "postprocess": function arrpush(d) {return d[0].concat([d[1]]);}},
+    {"name": "assignment", "symbols": [(lexer.has("identifier") ? {type: "identifier"} : identifier), "_", "assignment_operator", "_", "expression", "assignment$ebnf$1"], "postprocess": 
+        (data) => {
+          return {
+            type:'var_assign',
+            variable: data[0],
+            value: data[4],
+            optional: data[5] ? data[5][0] : [],
+            assignmentOperator: data[2]
+          }
+        }
+            },
+    {"name": "assignment$ebnf$2", "symbols": []},
+    {"name": "assignment$ebnf$2$subexpression$1", "symbols": ["string_property"]},
+    {"name": "assignment$ebnf$2", "symbols": ["assignment$ebnf$2", "assignment$ebnf$2$subexpression$1"], "postprocess": function arrpush(d) {return d[0].concat([d[1]]);}},
+    {"name": "assignment", "symbols": [(lexer.has("identifier") ? {type: "identifier"} : identifier), "_", (lexer.has("colon") ? {type: "colon"} : colon), "assignment_operator", "_", "expression", "assignment$ebnf$2"], "postprocess": 
+        (data) => {
+          return {
+            type: 'var_assign_standalone',
+            variable: data[0],
+            value: data[5],
+            optional: data[6] ? data[6][0] : [],
+            assignmentOperator: data[3]
           }
         }
             },
@@ -265,6 +297,52 @@ var grammar = {
           }
         }
             },
+    {"name": "reduce_statement", "symbols": [{"literal":"reduce"}, (lexer.has("colon") ? {type: "colon"} : colon), "_", "each_array", "_", (lexer.has("lparen") ? {type: "lparen"} : lparen), "_", "reduce_args", "_", (lexer.has("rparen") ? {type: "rparen"} : rparen), "_", (lexer.has("fatarrow") ? {type: "fatarrow"} : fatarrow), "_", "lambda_body"], "postprocess": 
+        (data) => {
+          return {
+            type: 'reduce_statement',
+            array: data[3],
+            arguments: data[7],
+            body: data[13]
+          }
+        }
+            },
+    {"name": "reduce_args", "symbols": ["expression", "_", (lexer.has("comma") ? {type: "comma"} : comma), "_", "expression", "_", (lexer.has("comma") ? {type: "comma"} : comma), "_", "expression"], "postprocess": 
+        (data) => {
+          return {
+            type: 'reduce_args',
+            accum: data[0],
+            cur: data[4],
+            startAt: data[8]
+          }
+        }
+            },
+    {"name": "math_expression", "symbols": [{"literal":"Math.pow"}, (lexer.has("lparen") ? {type: "lparen"} : lparen), "_", (lexer.has("identifier") ? {type: "identifier"} : identifier), "_", (lexer.has("comma") ? {type: "comma"} : comma), "_", (lexer.has("identifier") ? {type: "identifier"} : identifier), "_", (lexer.has("rparen") ? {type: "rparen"} : rparen)], "postprocess": 
+        (data) => {
+          return {
+            type: 'math_expression',
+            function: 'pow',
+            arg1: data[3],
+            arg2: data[7]
+          }
+        }
+            },
+    {"name": "array_conversion", "symbols": [{"literal":"Array"}, (lexer.has("period") ? {type: "period"} : period), {"literal":"from"}, (lexer.has("lparen") ? {type: "lparen"} : lparen), "_", (lexer.has("identifier") ? {type: "identifier"} : identifier), "_", (lexer.has("rparen") ? {type: "rparen"} : rparen)], "postprocess": 
+        (data) => {
+          return {
+            type: 'array_conversion',
+            array: data[5]
+          }
+        }
+            },
+    {"name": "object_assignment", "symbols": [{"literal":"Object"}, (lexer.has("period") ? {type: "period"} : period), {"literal":"assign"}, (lexer.has("lparen") ? {type: "lparen"} : lparen), "_", (lexer.has("lsquarebracket") ? {type: "lsquarebracket"} : lsquarebracket), (lexer.has("rsquarebracket") ? {type: "rsquarebracket"} : rsquarebracket), "_", (lexer.has("comma") ? {type: "comma"} : comma), "_", (lexer.has("identifier") ? {type: "identifier"} : identifier), "_", (lexer.has("rparen") ? {type: "rparen"} : rparen)], "postprocess": 
+        (data) => {
+          return {
+            type:'object_assignment',
+            arr: data[10]
+          }
+        } 
+            },
     {"name": "expression", "symbols": [(lexer.has("string") ? {type: "string"} : string)], "postprocess": id},
     {"name": "expression", "symbols": [(lexer.has("number") ? {type: "number"} : number)], "postprocess": id},
     {"name": "expression", "symbols": [(lexer.has("identifier") ? {type: "identifier"} : identifier)], "postprocess": id},
@@ -272,15 +350,47 @@ var grammar = {
     {"name": "expression", "symbols": ["internal_function_call"], "postprocess": id},
     {"name": "expression", "symbols": ["map_statement"], "postprocess": id},
     {"name": "expression", "symbols": ["math"], "postprocess": id},
+    {"name": "expression", "symbols": ["reduce_statement"], "postprocess": id},
+    {"name": "expression", "symbols": ["math_expression"], "postprocess": id},
+    {"name": "expression", "symbols": ["object_assignment"], "postprocess": id},
     {"name": "operator", "symbols": [(lexer.has("greaterthan") ? {type: "greaterthan"} : greaterthan)], "postprocess": id},
     {"name": "operator", "symbols": [(lexer.has("lessthan") ? {type: "lessthan"} : lessthan)], "postprocess": id},
     {"name": "operator", "symbols": [(lexer.has("equalto") ? {type: "equalto"} : equalto)], "postprocess": id},
     {"name": "operator", "symbols": [(lexer.has("notequalto") ? {type: "notequalto"} : notequalto)], "postprocess": id},
+    {"name": "string_property", "symbols": [(lexer.has("period") ? {type: "period"} : period), {"literal":"length"}], "postprocess": 
+        (data) => {
+          return {
+            type:'length',
+            value: ".length"
+          }
+        }
+            },
+    {"name": "string_property", "symbols": [(lexer.has("period") ? {type: "period"} : period), {"literal":"trim"}, (lexer.has("lparen") ? {type: "lparen"} : lparen), (lexer.has("rparen") ? {type: "rparen"} : rparen)], "postprocess": 
+        (data) => {
+          return{
+            type:'trim',
+            value: ".trim()"
+          }
+        }
+            },
+    {"name": "string_property", "symbols": [(lexer.has("period") ? {type: "period"} : period), {"literal":"toString"}, (lexer.has("lparen") ? {type: "lparen"} : lparen), (lexer.has("rparen") ? {type: "rparen"} : rparen)], "postprocess": 
+        (data) => {
+          return {
+            type: 'toString',
+            value: '.toString()'
+          }
+        }
+            },
+    {"name": "assignment_operator", "symbols": [(lexer.has("assign") ? {type: "assign"} : assign)], "postprocess": id},
+    {"name": "assignment_operator", "symbols": [(lexer.has("plusequals") ? {type: "plusequals"} : plusequals)], "postprocess": id},
+    {"name": "assignment_operator", "symbols": [(lexer.has("minusequals") ? {type: "minusequals"} : minusequals)], "postprocess": id},
     {"name": "math_operator", "symbols": [(lexer.has("plus") ? {type: "plus"} : plus)], "postprocess": id},
     {"name": "math_operator", "symbols": [(lexer.has("minus") ? {type: "minus"} : minus)], "postprocess": id},
     {"name": "math_operator", "symbols": [(lexer.has("times") ? {type: "times"} : times)], "postprocess": id},
     {"name": "math_operator", "symbols": [(lexer.has("divide") ? {type: "divide"} : divide)], "postprocess": id},
     {"name": "math_operator", "symbols": [(lexer.has("mod") ? {type: "mod"} : mod)], "postprocess": id},
+    {"name": "_cw", "symbols": ["_"]},
+    {"name": "_cw", "symbols": [(lexer.has("comma") ? {type: "comma"} : comma)]},
     {"name": "mlcomment$ebnf$1", "symbols": []},
     {"name": "mlcomment$ebnf$1", "symbols": ["mlcomment$ebnf$1", /[^*]/], "postprocess": function arrpush(d) {return d[0].concat([d[1]]);}},
     {"name": "mlcomment$ebnf$2", "symbols": []},

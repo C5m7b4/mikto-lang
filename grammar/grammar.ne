@@ -42,28 +42,56 @@ statement
   | math {% id %}
   | map_statement {% id %}
   | %identifier {% id %}
+  | reduce_statement {% id %}
+  | math_expression {% id %}
 
 internal_statement
   -> internal_function_call {% id %}  
 
 assignment
-  -> %identifier _ %assign _ expression
+  -> %identifier _ assignment_operator _ expression
     {%
       (data) => {
         return {
           type:'var_assign',
           variable: data[0],
-          value: data[4]
+          value: data[4],
+          assignmentOperator: data[2]
         }
       }
     %}
-  | %identifier _ %assign _ internal_function_call
+  | %identifier _ assignment_operator _ internal_function_call
     {%
       (data) => {
         return {
           type: 'var_assign',
           variable: data[0],
-          value: data[4]
+          value: data[4],
+          assignmentOperator: data[2]
+        }
+      }
+    %}
+  | %identifier _ assignment_operator _ expression (string_property):*
+    {%
+      (data) => {
+        return {
+          type:'var_assign',
+          variable: data[0],
+          value: data[4],
+          optional: data[5] ? data[5][0] : [],
+          assignmentOperator: data[2]
+        }
+      }
+    %}
+  | %identifier _ %colon assignment_operator _ expression (string_property):*
+    {%
+      (data) => {
+        return {
+          type: 'var_assign_standalone',
+          variable: data[0],
+          value: data[5],
+          optional: data[6] ? data[6][0] : [],
+          assignmentOperator: data[3]
         }
       }
     %}
@@ -309,6 +337,67 @@ math
       }
     %} 
 
+reduce_statement
+  -> "reduce" %colon _ each_array _ %lparen _ reduce_args _ %rparen _ %fatarrow _ lambda_body 
+    {%
+      (data) => {
+        return {
+          type: 'reduce_statement',
+          array: data[3],
+          arguments: data[7],
+          body: data[13]
+        }
+      }
+    %}
+
+reduce_args 
+  -> expression _ %comma _ expression _ %comma _ expression
+    {%
+      (data) => {
+        return {
+          type: 'reduce_args',
+          accum: data[0],
+          cur: data[4],
+          startAt: data[8]
+        }
+      }
+    %} 
+
+math_expression
+  -> "Math.pow" %lparen _ %identifier _ %comma _ %identifier _ %rparen
+    {%
+      (data) => {
+        return {
+          type: 'math_expression',
+          function: 'pow',
+          arg1: data[3],
+          arg2: data[7]
+        }
+      }
+    %}  
+
+array_conversion
+  -> "Array" %period "from" %lparen _ %identifier _ %rparen
+    {%
+      (data) => {
+        return {
+          type: 'array_conversion',
+          array: data[5]
+        }
+      }
+    %}
+
+object_assignment
+  -> "Object" %period "assign" %lparen _ %lsquarebracket %rsquarebracket _ %comma _ %identifier _ %rparen
+    {%
+      (data) => {
+        return {
+          type:'object_assignment',
+          arr: data[10]
+        }
+      } 
+    %}
+
 expression
   -> %string {% id %}
   | %number {% id %}
@@ -317,6 +406,9 @@ expression
   | internal_function_call {% id %}
   | map_statement {% id %}
   | math {% id %}
+  | reduce_statement {% id %}
+  | math_expression {% id %}
+  | object_assignment {% id %}
 
 operator
   -> %greaterthan {% id %}
@@ -324,12 +416,50 @@ operator
   | %equalto {% id %}
   | %notequalto {% id %}
 
+string_property
+  -> %period "length"
+    {%
+      (data) => {
+        return {
+          type:'length',
+          value: ".length"
+        }
+      }
+    %}
+  | %period "trim" %lparen %rparen
+    {%
+      (data) => {
+        return{
+          type:'trim',
+          value: ".trim()"
+        }
+      }
+    %}
+  | %period "toString" %lparen %rparen  
+    {%
+      (data) => {
+        return {
+          type: 'toString',
+          value: '.toString()'
+        }
+      }
+    %}
+
+  
+assignment_operator
+  => %assign {% id %}
+  | %plusequals {% id %}
+  | %minusequals {% id %}  
+
 math_operator
   -> %plus {% id %}
   | %minus {% id %}
   | %times {% id %}
   | %divide {% id %}
   | %mod {% id %}
+
+# comma or whitespace
+_cw => _ | %comma
 
 
 # multiline comment
