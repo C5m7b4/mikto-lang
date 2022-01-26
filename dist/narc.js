@@ -6,13 +6,13 @@
 const narcissistic = (num) => {
 		let s = num.toString()
 		let l = s.length
-		let total = 0;
-		let result = false;
-		let arr = Object.assign([], s);;
+		let total = 0
+		let result = false
+		let arr = Object.assign([], s);
 		arr.forEach((item) => {
-		let i = item.toString();
-		total += Math.pow(i, l);;
-		return total
+			let i = item.toString();
+			total += Math.pow(i, l);
+			return total
 	})
 		if (total === num) {
 		result = true;
@@ -25,5 +25,5 @@ const narcissistic = (num) => {
 const pow = (num1, num2) => {
 		return Math.pow(num1, num2)
 }
-let result = narcissistic(153);
+let result = narcissistic(153)
 console.log(result);
