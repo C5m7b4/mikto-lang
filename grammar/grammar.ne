@@ -23,7 +23,8 @@ internal_statements
         const restParams = chunks.map(chunk => chunk[1])
         return [data[1], ...restParams]
       }
-    %}    
+    %} 
+   
 
 
   
@@ -40,6 +41,7 @@ statement
   | each_statement {% id %}
   | math {% id %}
   | map_statement {% id %}
+  | %identifier {% id %}
 
 internal_statement
   -> internal_function_call {% id %}  
@@ -165,6 +167,7 @@ lambda_body
         return data[2]
       }
     %}
+
 
 if_Statement
   -> "if" _ %colon _ if_arguments _ %fatarrow _ lambda_body (_ else_if):? (_ else):?
@@ -313,6 +316,7 @@ expression
   | function_call {% id %}
   | internal_function_call {% id %}
   | map_statement {% id %}
+  | math {% id %}
 
 operator
   -> %greaterthan {% id %}

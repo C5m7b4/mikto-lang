@@ -40,6 +40,7 @@ var grammar = {
     {"name": "statement", "symbols": ["each_statement"], "postprocess": id},
     {"name": "statement", "symbols": ["math"], "postprocess": id},
     {"name": "statement", "symbols": ["map_statement"], "postprocess": id},
+    {"name": "statement", "symbols": [(lexer.has("identifier") ? {type: "identifier"} : identifier)], "postprocess": id},
     {"name": "internal_statement", "symbols": ["internal_function_call"], "postprocess": id},
     {"name": "assignment", "symbols": [(lexer.has("identifier") ? {type: "identifier"} : identifier), "_", (lexer.has("assign") ? {type: "assign"} : assign), "_", "expression"], "postprocess": 
         (data) => {
@@ -270,6 +271,7 @@ var grammar = {
     {"name": "expression", "symbols": ["function_call"], "postprocess": id},
     {"name": "expression", "symbols": ["internal_function_call"], "postprocess": id},
     {"name": "expression", "symbols": ["map_statement"], "postprocess": id},
+    {"name": "expression", "symbols": ["math"], "postprocess": id},
     {"name": "operator", "symbols": [(lexer.has("greaterthan") ? {type: "greaterthan"} : greaterthan)], "postprocess": id},
     {"name": "operator", "symbols": [(lexer.has("lessthan") ? {type: "lessthan"} : lessthan)], "postprocess": id},
     {"name": "operator", "symbols": [(lexer.has("equalto") ? {type: "equalto"} : equalto)], "postprocess": id},
