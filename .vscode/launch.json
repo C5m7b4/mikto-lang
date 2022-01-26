@@ -66,6 +66,31 @@
       "request": "launch",
       "name":"test test all",
       "program":"${workspaceFolder}\\test_all.js"
+    },
+    {
+      "type":"pwa-node",
+      "request": "launch",
+      "name":"reduce.js",
+      "program":"${workspaceFolder}\\example\\ex.js"
+    },
+    {
+      "type":"pwa-node",
+      "request": "launch",
+      "name":"narcissistic",
+      "program":"${workspaceFolder}\\program\\narcissistic.js"
+    },
+    {
+      "type":"pwa-node",
+      "request":"launch",
+      "name":"generate narc",
+      "program":"${workspaceFolder}\\generate.js",
+      "args":["narc"]
+    },
+    {
+      "type":"pwa-node",
+      "request":"launch",
+      "name":"test narc",
+      "program":"${workspaceFolder}\\dist\\narc.js",
     }
   ]
 }
