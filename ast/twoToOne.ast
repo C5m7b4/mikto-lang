@@ -1,0 +1,203 @@
+[
+ {
+  "type": "var_assign",
+  "variable": {
+   "type": "identifier",
+   "value": "s1",
+   "text": "s1",
+   "offset": 0,
+   "lineBreaks": 0,
+   "line": 1,
+   "col": 1
+  },
+  "value": {
+   "type": "string",
+   "value": "'aretheyhere'",
+   "text": "'aretheyhere'",
+   "offset": 5,
+   "lineBreaks": 0,
+   "line": 1,
+   "col": 6
+  },
+  "assignmentOperator": {
+   "type": "assign",
+   "value": "=",
+   "text": "=",
+   "offset": 3,
+   "lineBreaks": 0,
+   "line": 1,
+   "col": 4
+  }
+ },
+ {
+  "type": "var_assign",
+  "variable": {
+   "type": "identifier",
+   "value": "s2",
+   "text": "s2",
+   "offset": 20,
+   "lineBreaks": 0,
+   "line": 2,
+   "col": 1
+  },
+  "value": {
+   "type": "string",
+   "value": "'yestheyarehere'",
+   "text": "'yestheyarehere'",
+   "offset": 25,
+   "lineBreaks": 0,
+   "line": 2,
+   "col": 6
+  },
+  "assignmentOperator": {
+   "type": "assign",
+   "value": "=",
+   "text": "=",
+   "offset": 23,
+   "lineBreaks": 0,
+   "line": 2,
+   "col": 4
+  }
+ },
+ {
+  "type": "lambda",
+  "lambda_name": {
+   "type": "identifier",
+   "value": "longest",
+   "text": "longest",
+   "offset": 45,
+   "lineBreaks": 0,
+   "line": 4,
+   "col": 1
+  },
+  "params": [
+   {
+    "type": "identifier",
+    "value": "s1",
+    "text": "s1",
+    "offset": 56,
+    "lineBreaks": 0,
+    "line": 4,
+    "col": 12
+   },
+   {
+    "type": "identifier",
+    "value": "s2",
+    "text": "s2",
+    "offset": 59,
+    "lineBreaks": 0,
+    "line": 4,
+    "col": 15
+   }
+  ],
+  "body": [
+   {
+    "type": "array_conversion",
+    "method": "set",
+    "arg1": {
+     "type": "identifier",
+     "value": "s1",
+     "text": "s1",
+     "offset": 90,
+     "lineBreaks": 0,
+     "line": 5,
+     "col": 22
+    },
+    "math_operator": {
+     "type": "plus",
+     "value": "+",
+     "text": "+",
+     "offset": 93,
+     "lineBreaks": 0,
+     "line": 5,
+     "col": 25
+    },
+    "arg2": {
+     "type": "identifier",
+     "value": "s2",
+     "text": "s2",
+     "offset": 95,
+     "lineBreaks": 0,
+     "line": 5,
+     "col": 27
+    }
+   }
+  ]
+ },
+ {
+  "type": "var_assign",
+  "variable": {
+   "type": "identifier",
+   "value": "result",
+   "text": "result",
+   "offset": 122,
+   "lineBreaks": 0,
+   "line": 8,
+   "col": 1
+  },
+  "value": {
+   "type": "internal_function_call",
+   "function_name": {
+    "type": "identifier",
+    "value": "longest",
+    "text": "longest",
+    "offset": 131,
+    "lineBreaks": 0,
+    "line": 8,
+    "col": 10
+   },
+   "arguments": [
+    {
+     "type": "identifier",
+     "value": "s1",
+     "text": "s1",
+     "offset": 139,
+     "lineBreaks": 0,
+     "line": 8,
+     "col": 18
+    },
+    {
+     "type": "identifier",
+     "value": "s2",
+     "text": "s2",
+     "offset": 142,
+     "lineBreaks": 0,
+     "line": 8,
+     "col": 21
+    }
+   ]
+  },
+  "assignmentOperator": {
+   "type": "assign",
+   "value": "=",
+   "text": "=",
+   "offset": 129,
+   "lineBreaks": 0,
+   "line": 8,
+   "col": 8
+  }
+ },
+ {
+  "type": "function_call",
+  "function_name": {
+   "type": "identifier",
+   "value": "print",
+   "text": "print",
+   "offset": 147,
+   "lineBreaks": 0,
+   "line": 9,
+   "col": 1
+  },
+  "arguments": [
+   {
+    "type": "identifier",
+    "value": "result",
+    "text": "result",
+    "offset": 153,
+    "lineBreaks": 0,
+    "line": 9,
+    "col": 7
+   }
+  ]
+ }
+]

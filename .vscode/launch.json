@@ -89,8 +89,21 @@
     {
       "type":"pwa-node",
       "request":"launch",
+      "name":"generate twoToOne",
+      "program":"${workspaceFolder}\\generate.js",
+      "args":["twoToOne"]
+    },
+    {
+      "type":"pwa-node",
+      "request":"launch",
       "name":"test narc",
       "program":"${workspaceFolder}\\dist\\narc.js",
+    },
+    {
+      "type":"pwa-node",
+      "request":"launch",
+      "name":"test twoToOne",
+      "program":"${workspaceFolder}\\program\\twoToOne.js",
     }
   ]
 }
