@@ -1,0 +1,154 @@
+[
+ {
+  "type": "array",
+  "name": {
+   "type": "identifier",
+   "value": "arr",
+   "text": "arr",
+   "offset": 0,
+   "lineBreaks": 0,
+   "line": 1,
+   "col": 1
+  },
+  "contents": [
+   {
+    "type": "number",
+    "value": "1",
+    "text": "1",
+    "offset": 6,
+    "lineBreaks": 0,
+    "line": 1,
+    "col": 7
+   },
+   {
+    "type": "number",
+    "value": "2",
+    "text": "2",
+    "offset": 8,
+    "lineBreaks": 0,
+    "line": 1,
+    "col": 9
+   },
+   {
+    "type": "number",
+    "value": "3",
+    "text": "3",
+    "offset": 10,
+    "lineBreaks": 0,
+    "line": 1,
+    "col": 11
+   }
+  ]
+ },
+ {
+  "type": "var_assign",
+  "variable": {
+   "type": "identifier",
+   "value": "result",
+   "text": "result",
+   "offset": 16,
+   "lineBreaks": 0,
+   "line": 3,
+   "col": 1
+  },
+  "value": {
+   "type": "reduce_statement",
+   "array": [
+    {
+     "type": "identifier",
+     "value": "arr",
+     "text": "arr",
+     "offset": 33,
+     "lineBreaks": 0,
+     "line": 3,
+     "col": 18
+    }
+   ],
+   "arguments": {
+    "type": "reduce_args",
+    "accum": {
+     "type": "identifier",
+     "value": "accum",
+     "text": "accum",
+     "offset": 38,
+     "lineBreaks": 0,
+     "line": 3,
+     "col": 23
+    },
+    "cur": {
+     "type": "identifier",
+     "value": "cur",
+     "text": "cur",
+     "offset": 45,
+     "lineBreaks": 0,
+     "line": 3,
+     "col": 30
+    },
+    "startAt": {
+     "type": "number",
+     "value": "0",
+     "text": "0",
+     "offset": 50,
+     "lineBreaks": 0,
+     "line": 3,
+     "col": 35
+    }
+   },
+   "body": [
+    {
+     "type": "math",
+     "exp1": {
+      "type": "identifier",
+      "value": "accum",
+      "text": "accum",
+      "offset": 61,
+      "lineBreaks": 0,
+      "line": 4,
+      "col": 3
+     },
+     "operator": {
+      "type": "plus",
+      "value": "+",
+      "text": "+",
+      "offset": 67,
+      "lineBreaks": 0,
+      "line": 4,
+      "col": 9
+     },
+     "exp2": {
+      "type": "identifier",
+      "value": "cur",
+      "text": "cur",
+      "offset": 69,
+      "lineBreaks": 0,
+      "line": 4,
+      "col": 11
+     }
+    }
+   ]
+  }
+ },
+ {
+  "type": "function_call",
+  "function_name": {
+   "type": "identifier",
+   "value": "print",
+   "text": "print",
+   "offset": 80,
+   "lineBreaks": 0,
+   "line": 7,
+   "col": 1
+  },
+  "arguments": [
+   {
+    "type": "identifier",
+    "value": "result",
+    "text": "result",
+    "offset": 86,
+    "lineBreaks": 0,
+    "line": 7,
+    "col": 7
+   }
+  ]
+ }
+]

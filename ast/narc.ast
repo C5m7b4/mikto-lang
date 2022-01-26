@@ -1,0 +1,578 @@
+[
+ {
+  "type": "comment",
+  "value": "// A Narcissistic Number is a positive number which is the sum of its own digits, each raised to the power of",
+  "text": "// A Narcissistic Number is a positive number which is the sum of its own digits, each raised to the power of",
+  "offset": 0,
+  "lineBreaks": 0,
+  "line": 1,
+  "col": 1
+ },
+ {
+  "type": "comment",
+  "value": "// the number of digits in a given base. In this Kata, we will restrict ourselves to decimal (base 10).",
+  "text": "// the number of digits in a given base. In this Kata, we will restrict ourselves to decimal (base 10).",
+  "offset": 111,
+  "lineBreaks": 0,
+  "line": 2,
+  "col": 1
+ },
+ {
+  "type": "comment",
+  "value": "// For example, take 153 (3 digits), which is narcisstic:",
+  "text": "// For example, take 153 (3 digits), which is narcisstic:",
+  "offset": 216,
+  "lineBreaks": 0,
+  "line": 3,
+  "col": 1
+ },
+ {
+  "type": "comment",
+  "value": "// 1^3 + 5^3 + 3^3 = 1 + 125 + 27 = 153",
+  "text": "// 1^3 + 5^3 + 3^3 = 1 + 125 + 27 = 153",
+  "offset": 275,
+  "lineBreaks": 0,
+  "line": 4,
+  "col": 1
+ },
+ {
+  "type": "lambda",
+  "lambda_name": {
+   "type": "identifier",
+   "value": "narcissistic",
+   "text": "narcissistic",
+   "offset": 318,
+   "lineBreaks": 0,
+   "line": 6,
+   "col": 1
+  },
+  "params": [
+   {
+    "type": "identifier",
+    "value": "num",
+    "text": "num",
+    "offset": 334,
+    "lineBreaks": 0,
+    "line": 6,
+    "col": 17
+   }
+  ],
+  "body": [
+   {
+    "type": "var_assign",
+    "variable": {
+     "type": "identifier",
+     "value": "s",
+     "text": "s",
+     "offset": 347,
+     "lineBreaks": 0,
+     "line": 7,
+     "col": 3
+    },
+    "value": {
+     "type": "identifier",
+     "value": "num",
+     "text": "num",
+     "offset": 351,
+     "lineBreaks": 0,
+     "line": 7,
+     "col": 7
+    },
+    "optional": [
+     {
+      "type": "toString",
+      "value": ".toString()"
+     }
+    ],
+    "assignmentOperator": {
+     "type": "assign",
+     "value": "=",
+     "text": "=",
+     "offset": 349,
+     "lineBreaks": 0,
+     "line": 7,
+     "col": 5
+    }
+   },
+   {
+    "type": "var_assign",
+    "variable": {
+     "type": "identifier",
+     "value": "l",
+     "text": "l",
+     "offset": 369,
+     "lineBreaks": 0,
+     "line": 8,
+     "col": 3
+    },
+    "value": {
+     "type": "identifier",
+     "value": "s",
+     "text": "s",
+     "offset": 373,
+     "lineBreaks": 0,
+     "line": 8,
+     "col": 7
+    },
+    "optional": [
+     {
+      "type": "length",
+      "value": ".length"
+     }
+    ],
+    "assignmentOperator": {
+     "type": "assign",
+     "value": "=",
+     "text": "=",
+     "offset": 371,
+     "lineBreaks": 0,
+     "line": 8,
+     "col": 5
+    }
+   },
+   {
+    "type": "var_assign",
+    "variable": {
+     "type": "identifier",
+     "value": "total",
+     "text": "total",
+     "offset": 385,
+     "lineBreaks": 0,
+     "line": 9,
+     "col": 3
+    },
+    "value": {
+     "type": "number",
+     "value": "0",
+     "text": "0",
+     "offset": 393,
+     "lineBreaks": 0,
+     "line": 9,
+     "col": 11
+    },
+    "assignmentOperator": {
+     "type": "assign",
+     "value": "=",
+     "text": "=",
+     "offset": 391,
+     "lineBreaks": 0,
+     "line": 9,
+     "col": 9
+    }
+   },
+   {
+    "type": "var_assign",
+    "variable": {
+     "type": "identifier",
+     "value": "result",
+     "text": "result",
+     "offset": 398,
+     "lineBreaks": 0,
+     "line": 10,
+     "col": 3
+    },
+    "value": {
+     "type": "identifier",
+     "value": "false",
+     "text": "false",
+     "offset": 407,
+     "lineBreaks": 0,
+     "line": 10,
+     "col": 12
+    },
+    "assignmentOperator": {
+     "type": "assign",
+     "value": "=",
+     "text": "=",
+     "offset": 405,
+     "lineBreaks": 0,
+     "line": 10,
+     "col": 10
+    }
+   },
+   {
+    "type": "var_assign",
+    "variable": {
+     "type": "identifier",
+     "value": "arr",
+     "text": "arr",
+     "offset": 418,
+     "lineBreaks": 0,
+     "line": 12,
+     "col": 3
+    },
+    "value": {
+     "type": "object_assignment",
+     "arr": {
+      "type": "identifier",
+      "value": "s",
+      "text": "s",
+      "offset": 442,
+      "lineBreaks": 0,
+      "line": 12,
+      "col": 27
+     }
+    },
+    "assignmentOperator": {
+     "type": "assign",
+     "value": "=",
+     "text": "=",
+     "offset": 422,
+     "lineBreaks": 0,
+     "line": 12,
+     "col": 7
+    }
+   },
+   {
+    "type": "each_statement",
+    "array": [
+     {
+      "type": "identifier",
+      "value": "arr",
+      "text": "arr",
+      "offset": 456,
+      "lineBreaks": 0,
+      "line": 14,
+      "col": 9
+     }
+    ],
+    "arguments": {
+     "type": "each_args",
+     "itemToManipulate": {
+      "type": "identifier",
+      "value": "item",
+      "text": "item",
+      "offset": 461,
+      "lineBreaks": 0,
+      "line": 14,
+      "col": 14
+     },
+     "operateFunction": []
+    },
+    "body": [
+     {
+      "type": "var_assign",
+      "variable": {
+       "type": "identifier",
+       "value": "i",
+       "text": "i",
+       "offset": 477,
+       "lineBreaks": 0,
+       "line": 15,
+       "col": 5
+      },
+      "value": {
+       "type": "identifier",
+       "value": "item",
+       "text": "item",
+       "offset": 481,
+       "lineBreaks": 0,
+       "line": 15,
+       "col": 9
+      },
+      "optional": [
+       {
+        "type": "toString",
+        "value": ".toString()"
+       }
+      ],
+      "assignmentOperator": {
+       "type": "assign",
+       "value": "=",
+       "text": "=",
+       "offset": 479,
+       "lineBreaks": 0,
+       "line": 15,
+       "col": 7
+      }
+     },
+     {
+      "type": "var_assign",
+      "variable": {
+       "type": "identifier",
+       "value": "total",
+       "text": "total",
+       "offset": 502,
+       "lineBreaks": 0,
+       "line": 16,
+       "col": 5
+      },
+      "value": {
+       "type": "math_expression",
+       "function": "pow",
+       "arg1": {
+        "type": "identifier",
+        "value": "i",
+        "text": "i",
+        "offset": 520,
+        "lineBreaks": 0,
+        "line": 16,
+        "col": 23
+       },
+       "arg2": {
+        "type": "identifier",
+        "value": "l",
+        "text": "l",
+        "offset": 523,
+        "lineBreaks": 0,
+        "line": 16,
+        "col": 26
+       }
+      },
+      "assignmentOperator": {
+       "type": "plusequals",
+       "value": "+=",
+       "text": "+=",
+       "offset": 508,
+       "lineBreaks": 0,
+       "line": 16,
+       "col": 11
+      }
+     },
+     {
+      "type": "identifier",
+      "value": "total",
+      "text": "total",
+      "offset": 531,
+      "lineBreaks": 0,
+      "line": 17,
+      "col": 5
+     }
+    ]
+   },
+   {
+    "type": "if_statement",
+    "params": {
+     "type": "if_arguments",
+     "param1": {
+      "type": "identifier",
+      "value": "total",
+      "text": "total",
+      "offset": 551,
+      "lineBreaks": 0,
+      "line": 20,
+      "col": 7
+     },
+     "operator": {
+      "type": "equalto",
+      "value": "===",
+      "text": "===",
+      "offset": 557,
+      "lineBreaks": 0,
+      "line": 20,
+      "col": 13
+     },
+     "param2": {
+      "type": "identifier",
+      "value": "num",
+      "text": "num",
+      "offset": 561,
+      "lineBreaks": 0,
+      "line": 20,
+      "col": 17
+     }
+    },
+    "body": [
+     {
+      "type": "var_assign_standalone",
+      "variable": {
+       "type": "identifier",
+       "value": "result",
+       "text": "result",
+       "offset": 575,
+       "lineBreaks": 0,
+       "line": 21,
+       "col": 5
+      },
+      "value": {
+       "type": "identifier",
+       "value": "true",
+       "text": "true",
+       "offset": 585,
+       "lineBreaks": 0,
+       "line": 21,
+       "col": 15
+      },
+      "assignmentOperator": {
+       "type": "assign",
+       "value": "=",
+       "text": "=",
+       "offset": 583,
+       "lineBreaks": 0,
+       "line": 21,
+       "col": 13
+      }
+     }
+    ],
+    "elseif": [],
+    "else": {
+     "type": "else",
+     "body": [
+      {
+       "type": "var_assign_standalone",
+       "variable": {
+        "type": "identifier",
+        "value": "result",
+        "text": "result",
+        "offset": 610,
+        "lineBreaks": 0,
+        "line": 23,
+        "col": 5
+       },
+       "value": {
+        "type": "identifier",
+        "value": "false",
+        "text": "false",
+        "offset": 620,
+        "lineBreaks": 0,
+        "line": 23,
+        "col": 15
+       },
+       "assignmentOperator": {
+        "type": "assign",
+        "value": "=",
+        "text": "=",
+        "offset": 618,
+        "lineBreaks": 0,
+        "line": 23,
+        "col": 13
+       }
+      }
+     ]
+    }
+   },
+   {
+    "type": "identifier",
+    "value": "result",
+    "text": "result",
+    "offset": 636,
+    "lineBreaks": 0,
+    "line": 26,
+    "col": 3
+   }
+  ]
+ },
+ {
+  "type": "lambda",
+  "lambda_name": {
+   "type": "identifier",
+   "value": "pow",
+   "text": "pow",
+   "offset": 649,
+   "lineBreaks": 0,
+   "line": 29,
+   "col": 1
+  },
+  "params": [
+   {
+    "type": "identifier",
+    "value": "num1",
+    "text": "num1",
+    "offset": 656,
+    "lineBreaks": 0,
+    "line": 29,
+    "col": 8
+   },
+   {
+    "type": "identifier",
+    "value": "num2",
+    "text": "num2",
+    "offset": 661,
+    "lineBreaks": 0,
+    "line": 29,
+    "col": 13
+   }
+  ],
+  "body": [
+   {
+    "type": "math_expression",
+    "function": "pow",
+    "arg1": {
+     "type": "identifier",
+     "value": "num1",
+     "text": "num1",
+     "offset": 684,
+     "lineBreaks": 0,
+     "line": 30,
+     "col": 12
+    },
+    "arg2": {
+     "type": "identifier",
+     "value": "num2",
+     "text": "num2",
+     "offset": 690,
+     "lineBreaks": 0,
+     "line": 30,
+     "col": 18
+    }
+   }
+  ]
+ },
+ {
+  "type": "var_assign",
+  "variable": {
+   "type": "identifier",
+   "value": "result",
+   "text": "result",
+   "offset": 702,
+   "lineBreaks": 0,
+   "line": 33,
+   "col": 1
+  },
+  "value": {
+   "type": "internal_function_call",
+   "function_name": {
+    "type": "identifier",
+    "value": "narcissistic",
+    "text": "narcissistic",
+    "offset": 711,
+    "lineBreaks": 0,
+    "line": 33,
+    "col": 10
+   },
+   "arguments": [
+    {
+     "type": "number",
+     "value": "153",
+     "text": "153",
+     "offset": 724,
+     "lineBreaks": 0,
+     "line": 33,
+     "col": 23
+    }
+   ]
+  },
+  "assignmentOperator": {
+   "type": "assign",
+   "value": "=",
+   "text": "=",
+   "offset": 709,
+   "lineBreaks": 0,
+   "line": 33,
+   "col": 8
+  }
+ },
+ {
+  "type": "function_call",
+  "function_name": {
+   "type": "identifier",
+   "value": "print",
+   "text": "print",
+   "offset": 730,
+   "lineBreaks": 0,
+   "line": 34,
+   "col": 1
+  },
+  "arguments": [
+   {
+    "type": "identifier",
+    "value": "result",
+    "text": "result",
+    "offset": 736,
+    "lineBreaks": 0,
+    "line": 34,
+    "col": 7
+   }
+  ]
+ }
+]

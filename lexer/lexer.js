@@ -1,6 +1,18 @@
 const moo = require('moo');
 
 let lexer = moo.compile({
+  keywords: [
+    'if',
+    'each',
+    'length',
+    'trim',
+    'toString',
+    'Math.pow',
+    'Array',
+    'from',
+    'Object',
+    'assign',
+  ],
   ws: /[ \t]+/,
   comment: /\/\/.*?$/,
   mlstart: /\/\*/,
@@ -13,9 +25,10 @@ let lexer = moo.compile({
   rbrace: '}',
   lsquarebracket: '[',
   rsquarebracket: ']',
-  keyword: ['while', 'if', 'else', 'moo', 'cows'],
   fatarrow: '=>',
   identifier: /[a-zA-z][a-zA-Z0-9]*/,
+  plusequals: '+=',
+  minusequals: '-=',
   minus: '-',
   plus: '+',
   times: '*',
@@ -36,7 +49,7 @@ let lexer = moo.compile({
   colon: ':',
   assign: '=',
   comma: ',',
-  keywords: ['if', 'each'],
+  period: '.',
   nl: { match: /\r\n/, lineBreaks: true },
 });
 
