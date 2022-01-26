@@ -1,6 +1,8 @@
 const fs = require('fs').promises;
 const generateIf = require('./generators/if');
 
+let insideFunction = false;
+
 async function main() {
   const filename = process.argv[2];
   if (!filename) {
@@ -31,7 +33,49 @@ function generateLine(node) {
     case 'var_assign':
       const variable = node.variable.value;
       const value = generateLine(node.value);
-      return `let ${variable} = ${value};`;
+      const assignmentOperator = node.assignmentOperator.value;
+      let optional = '';
+      if (node.optional) {
+        optional = node.optional
+          .map((arg, i) => {
+            return generateLine(arg);
+          })
+          .join('');
+        if (assignmentOperator !== '=') {
+          return `${variable} ${assignmentOperator} ${value}${optional}`;
+        } else {
+          return `let ${variable} ${assignmentOperator} ${value}${optional}`;
+        }
+      } else {
+        if (assignmentOperator !== '=') {
+          return `${variable} ${assignmentOperator} ${value};`;
+        } else {
+          return `let ${variable} ${assignmentOperator} ${value};`;
+        }
+      }
+    case 'var_assign_standalone':
+      const svariable = node.variable.value;
+      const svalue = generateLine(node.value);
+      const sassignmentOperator = node.assignmentOperator.value;
+      let soptional = '';
+      if (node.optional) {
+        soptional = node.optional
+          .map((arg, i) => {
+            return generateLine(arg);
+          })
+          .join('');
+        if (sassignmentOperator !== '=') {
+          return `${svariable} ${sassignmentOperator} ${svalue}${soptional}`;
+        } else {
+          return `${svariable} ${sassignmentOperator} ${svalue}${soptional}`;
+        }
+      } else {
+        if (sassignmentOperator !== '=') {
+          return `${svariable} ${sassignmentOperator} ${svalue};`;
+        } else {
+          return `${svariable} ${sassignmentOperator} ${svalue};`;
+        }
+      }
     case 'function_call':
       const functionName = node.function_name.value;
       const arguments =
@@ -44,11 +88,11 @@ function generateLine(node) {
         }
       } else {
         if (arguments) {
-          return `\nfunction ${functionName}(${arguments})`;
+          return `function ${functionName}(${arguments})`;
         } else {
           // if there are no arguments,
           // then we should probably just be calling the function
-          return `\n${functionName}();`;
+          return `${functionName}();`;
         }
       }
     case 'internal_function_call':
@@ -84,6 +128,7 @@ function generateLine(node) {
         .join(', ');
       return `const ${arrayName} = [${arrayContents}];`;
     case 'lambda':
+      insideFunction = true;
       const lambdaName = node.lambda_name.value;
       const params = node.params.map(generateLine).join(', ');
       const lambdaBody = node.body
@@ -96,7 +141,11 @@ function generateLine(node) {
           }
         })
         .join('\n');
-      return `\nconst ${lambdaName} = (${params}) => {\n${lambdaBody}\n}`;
+      const lambdaResult = `\nconst ${lambdaName} = (${params}) => {\n${indent(
+        lambdaBody
+      )}\n}`;
+      insideFunction = false;
+      return lambdaResult;
     case 'if_statement':
       return generateIf(node, generateLine, indent);
     case 'each_statement':
@@ -137,6 +186,41 @@ function generateLine(node) {
       const mathExp2 = node.exp2.value;
       const mathOperator = node.operator.value;
       return `${mathExp1} ${mathOperator} ${mathExp2};`;
+    case 'reduce_statement':
+      const reduceArray = node.array[0].value;
+      const accum = node.arguments.accum.value;
+      const cur = node.arguments.cur.value;
+      const startAt = node.arguments.startAt.value;
+      const reduceBody = node.body
+        .map((arg, i) => {
+          const reduceCode = generateLine(arg);
+          if (i === node.body.length - 1) {
+            return `return ${reduceCode}`;
+          } else {
+            return `${reduceCode}`;
+          }
+        })
+        .join('\n');
+      return `${reduceArray}.reduce((${accum}, ${cur}) => {\n${indent(
+        reduceBody
+      )}\n}, ${startAt})`;
+    case 'math_expression':
+      const meFunction = node.function;
+      const meArg1 = node.arg1.value;
+      const meArg2 = node.arg2.value;
+      switch (meFunction) {
+        case 'pow':
+          return `Math.pow(${meArg1}, ${meArg2})`;
+        default:
+          return '';
+      }
+    case 'toString':
+      return node.value;
+    case 'object_assignment':
+      arr = node.arr.value;
+      return `Object.assign([], ${arr});`;
+    case 'length':
+      return node.value;
     default:
       console.log(`unknown node type detected: ${node.type}`);
   }
